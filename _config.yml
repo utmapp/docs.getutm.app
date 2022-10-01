@@ -1,0 +1,50 @@
+title: UTM Documentation
+description: Documentation for UTM virtual machines
+baseurl: ""
+url: ""
+permalink: pretty
+
+remote_theme: just-the-docs/just-the-docs
+
+logo: "/assets/images/logo.png"
+
+heading_anchors: true
+
+nav_external_links:
+  - title: UTM for macOS
+    url: https://mac.getutm.app
+  - title: UTM for iOS
+    url: https://getutm.app
+  - title: Discord
+    url: https://discord.gg/UV2RUgD
+  - title: GitHub
+    url: https://github.com/utmapp/UTM
+
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/utmapp/docs.getutm.app"
+gh_edit_branch: "main"
+gh_edit_view_mode: "tree"
+
+callouts_level: quiet
+callouts:
+  highlight:
+    color: yellow
+  important:
+    title: Important
+    color: blue
+  new:
+    title: New
+    color: green
+  note:
+    title: Note
+    color: purple
+  warning:
+    title: Warning
+    color: red
+
+plugins:
+  - jekyll-redirect-from
+
+whitelist:
+  - jekyll-redirect-from

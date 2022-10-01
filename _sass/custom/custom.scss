@@ -1,0 +1,10 @@
+.screenshots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.screenshots img {
+    max-height: 20em;
+}
