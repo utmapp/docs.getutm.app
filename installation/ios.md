@@ -54,7 +54,12 @@ UTM SE does not support JIT (will run much slower) but is compatible with all si
 
 ## TrollStore
 
-If your device runs [TrollStore][11], then UTM can support additional features such as USB sharing and virtualization. You can install via TrollStore by downloading the IPA on your device and opening it with TrollStore.
+If your device runs [TrollStore][11], then UTM can support additional features such as USB sharing and virtualization (currently limited to M1 iPads). You can install via TrollStore by downloading the TrollStore compatible IPA (UTM.HV.ipa) on your device and opening it with TrollStore.
+
+{: .note }
+You cannot install the normal IPA (UTM.ipa) because it includes the `dynamic-codesigning` entitlements which TrollStore does not support.
+
+In order to use JIT with a TrollStore install, you must also install [Jitterbug][9] or use [Jitstreamer][10].
 
 ## Jailbroken Devices
 
@@ -69,7 +74,7 @@ UTM requires AppSync Unified which can be found on [Karen's Repo][8]. You need t
 |------|------------|--------------|-----|-----------|-----|
 | [UTM.deb](https://github.com/utmapp/UTM/releases/latest/download/UTM.deb) | Jailbroken iOS version | Open in Cydia, dpkg, or Sileo | Yes | Yes(1) | Yes |
 | [UTM.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.ipa) | Non-jailbroken iOS version (sideloading) | AltStore, etc (see guide) | Yes(2) | No | No |
-| [UTM.HV.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.HV.ipa) | Non-jailbroken iOS version (TrollStore) | TrollStore | No | Yes(1) | Yes |
+| [UTM.HV.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.HV.ipa) | Non-jailbroken iOS version (TrollStore) | TrollStore | Yes(2) | Yes(1) | Yes |
 | [UTM.SE.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.SE.ipa) | Non-jailbroken iOS version (sideloading) | AltStore, enterprise signing, etc | No | No | No |
 
 1. Hypervisor on iOS requires an M1 iPad.
