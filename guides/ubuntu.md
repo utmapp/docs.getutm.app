@@ -8,11 +8,10 @@ parent: Guides
 
 {% include toc.md %}
 
-This guide is designed to only work on Apple Silicon.
-
 ## Downloads
 
 * [Ubuntu Server for ARM](https://ubuntu.com/download/server/arm)
+* [Ubuntu Desktop for Intel](https://ubuntu.com/download/desktop)
 
 ## Creating a new virtual machine
 
@@ -24,11 +23,11 @@ This guide is designed to only work on Apple Silicon.
 6. Specify the maximum amount of drive space to allocate. Press "Next" to continue.
 6. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Next" to continue.
 8. Press "Save" to create the VM and press the Run button to start the VM.
-9. Go through the Ubuntu Server installer. If the reboot fails, you can manually quit the VM, unmount the installer ISO, and start the VM again to boot into your new installation.
+9. Go through the Ubuntu installer. If the reboot fails, you can manually quit the VM, unmount the installer ISO, and start the VM again to boot into your new installation.
 
 ## Installing Ubuntu Desktop
 
-At the end of the installation, you will have Ubuntu Server installed without any GUI. To install Ubuntu Desktop, log in and run:
+If you installed Ubuntu Server, then at the end of the installation, you will not have any GUI. To install Ubuntu Desktop, log in and run:
 
 ```
 $ sudo apt update

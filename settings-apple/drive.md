@@ -23,6 +23,11 @@ To delete a drive, right/secondary click the drive on the left toolbar and selec
 {: .warning }
 When you delete a non-removable drive, the data will be deleted as well. If the drive is removable, no data is deleted.
 
+## Boot Order
+The boot order of devices are in the order they appear on the list.
+
+To change the drive order, either right/secondary click the drive on the left toolbar and select "Move Up"/"Move Down" or drag and drop the drive in the desired order.
+
 ## Removable Drive
 Non-removable drives are stored in the .utm package. Removable drives only store a bookmark to the drive image and should be used for ISOs and other disk images.
 
