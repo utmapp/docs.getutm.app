@@ -23,6 +23,9 @@ grand_parent: Settings (QEMU)
 ### Wait for Connection
 Only applicable in TCP Server mode. When the VM is started, wait until a client is connected before booting up the guest.
 
+### Allow Remote Connection
+Only applicable in TCP Server mode. If disabled, the server will listen only on local loopback (127.0.0.1). If enabled, the server will listen on all interfaces (0.0.0.0).
+
 ## Hardware
 Only applicable if the target is manual.
 
