@@ -12,8 +12,13 @@ This guide will help you create an Windows 10 or Windows 11 virtual machine from
 
 ## Downloads
 
-* [UUP dump (Windows 10)](https://uupdump.net/known.php?q=21390)
-* [UUP dump (Windows 11)](https://uupdump.net/known.php?q=Windows+11+co_release)
+* [UUP dump (Windows 10 21H2)](https://uupdump.net/known.php?q=21390)
+* [UUP dump (Windows 11 21H2)](https://uupdump.net/known.php?q=22000.1098)
+* [UUP dump (Windows 11 22H2)](https://uupdump.net/known.php?q=22621.674)
+
+{: .warning }
+Windows 11 22H2 or later requires using Windows 10, version 2004 or later for the ISO to be properly created. The current script for macOS will output a broken ISO. If you do not have a Windows computer, you can install an older version of Windows in UTM first and use that to create an ISO for a newer version.
+
 
 ## Instructions
 
@@ -101,10 +106,11 @@ Make sure you installed the SPICE guest tools, which includes the network driver
 
 If Windows 11 setup is stuck due to lack of network connection:
 
-1. Press **Shift + F10** to launch Command Prompt.
-2. Type in `OOBE\BYPASSNRO` and press Enter.
-3. Your VM should reboot and at the setup screen you should see an option for "I don't have internet."
-4. Once Windows setup is completed, make sure to install the SPICE guest tools for network drivers.
+1. Go to the language select screen (you may need to restart the setup if you are past this screen).
+2. Press **Shift + F10** to launch Command Prompt.
+3. Type in `OOBE\BYPASSNRO` and press Enter.
+4. Your VM should reboot and at the setup screen you should see an option for "I don't have internet."
+5. Once Windows setup is completed, make sure to install the SPICE guest tools for network drivers.
 
 ### SPICE tools did not install automatically
 
