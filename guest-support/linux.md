@@ -77,6 +77,7 @@ VirtFS enables [QEMU directory sharing]({% link settings-qemu/sharing.md %}#virt
 After making sure your Linux installation [supports 9pfs](#drivers), you can mount the share with the following command:
 
 ```
+$ sudo mkdir [mount point]
 $ sudo mount -t 9p -o trans=virtio share [mount point] -oversion=9p2000.L
 ```
 
@@ -106,6 +107,7 @@ VirtioFS is NOT the same as [VirtFS](#virtfs) which is used by the QEMU backend 
 After making sure your Linux installation [supports VirtioFS](#drivers), you can mount the share with the following command:
 
 ```
+$ sudo mkdir [mount point]
 $ sudo mount -t virtiofs share [mount point]
 ```
 
