@@ -43,6 +43,7 @@ Make sure you select **arm64** if you are on Apple Silicon and **amd64** if you 
 {: .label .label-yellow }
 **WIP**
 
+Check [this page](https://dabigblob.github.io/ms-store-arm64) to get Microsoft Store working.
 Check [this issue](https://github.com/utmapp/UTM/issues/3884) for more information.
 
 ## Troubleshooting
