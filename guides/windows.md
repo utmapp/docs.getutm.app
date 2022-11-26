@@ -40,8 +40,13 @@ Make sure you select **arm64** if you are on Apple Silicon and **amd64** if you 
 
 ### Installing the Microsoft Store and UWP apps (optional)
 
-{: .label .label-yellow }
-**WIP**
+To install Microsoft store open cmd or PowerShell with administrator righs and execute command:
+
+```
+wsreset.exe -i
+```
+
+Shortly after that Microsoft Store will be installed and show up in the applications list.
 
 Check [this issue](https://github.com/utmapp/UTM/issues/3884) for more information.
 
