@@ -92,7 +92,7 @@ If you get this message trying to install Windows 11, you can bypass it with the
 3. Right click on the **Setup** key on the left size and choose New -> Key.
 4. Create a key named `LabConfig`
 5. Select the **LabConfig** key.
-6. Create two new values: Choose New -> DWORD (32-bit) and create `BypassTPMCheck` and `BypassSecureBootCheck`. Set both values to 1.
+6. Create five new values: Choose New -> DWORD (32-bit) and create `BypassCPUCheck`, `BypassRAMCheck`, `BypassSecureBootCheck`, `BypassStorageCheck`, and `BypassTPMCheck`. Set all values to 1.
 7. Close out of Registry Editor and Command Prompt.
 8. In setup, press the back button and then Next to continue installation.
 
