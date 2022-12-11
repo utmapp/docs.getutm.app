@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Fedora 36
+title: Fedora 37
 parent: Guides
 ---
 
