@@ -43,12 +43,12 @@ Make sure you select **arm64** if you are on Apple Silicon and **amd64** if you 
 {: .label .label-yellow }
 **WIP**
 1. Google the UWP apps (or any other apps available in the Microsoft Store) of interest to find its official download link from Microsoft.
-    a. For example, if you wanted to download Windows Photo app, the following link is what you're looking for:
+    - For example, if you wanted to download Windows Photo app, the following link is what you're looking for:
     https://apps.microsoft.com/store/detail/microsoft-photos/9WZDNCRFJBH4?hl=en-us&gl=us
 2. Navigate to the [Online link generator for Microsoft Store](https://store.rg-adguard.net/), input your link in the searchbox, and click on the checkbox.
-    a. The site will provide \*.appx dependencies needed for your app work.
+    - The site will provide \*.appx dependencies needed for your app work.
 3. Download all the \*.appx files corresponding to your Windows architecture along with the .Msixbundle file associated with your app.
-    a. For example, if you want to install the Photos app on Windows 11 arm64, you would need to download these files:
+    - For example, if you want to install the Photos app on Windows 11 arm64, you would need to download these files:
       -Microsoft.NET.Native.Framework...arm64...appx
       -Microsoft.NET.Native.Runtime...arm64...appx
       -Microsoft.Services.Store.Engagement...arm64...appx
