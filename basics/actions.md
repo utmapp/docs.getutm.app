@@ -17,7 +17,7 @@ The action menu can be opened by a secondary click or a Force Touch on a virtual
 1. **macOS**{: .label .label-green } Reveal the virtual machine package in Finder.
 2. Open the configuration settings for this virtual machine.
 3. Run the virtual machine.
-4. [Run the virtual machine in disposable mode.]({% link advanced/disposable.md %})
+4. Run the virtual machine in [disposable mode]({% link advanced/disposable.md %}) or [recovery mode]({% link advanced/recovery.md %}) (depending on the VM).
 5. Export the virtual machine and all its data.
 6. **macOS**{: .label .label-green } Move the virtual machine to another path (for example an external hard drive).
 7. Create a copy of the virtual machine with all its data.
