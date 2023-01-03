@@ -2,7 +2,6 @@
 layout: default
 title: macOS
 parent: Preferences
-grand_parent: Advanced
 ---
 {: .label .label-green }
 **macOS**

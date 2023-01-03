@@ -2,7 +2,6 @@
 layout: default
 title: iOS
 parent: Preferences
-grand_parent: Advanced
 ---
 {: .label .label-blue }
 **iOS**

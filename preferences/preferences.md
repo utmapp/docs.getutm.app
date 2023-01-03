@@ -1,6 +1,6 @@
 ---
 layout: default
 title: Preferences
-parent: Advanced
+nav_order: 6
 has_children: true
 ---
