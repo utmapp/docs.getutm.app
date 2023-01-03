@@ -14,10 +14,10 @@ See [this page]({% link advanced/multiple-displays.md %}) for more details on se
 This is the hardware that the guest operating system sees as the display output device.
 
 {: .note }
-The devices labeled "(GPU Supported)" support VirGL hardware accelerated rendering. Currently, the drivers to support this feature are Linux only. VirGL is an experimental feature and may result in crashes and is not recommended for production use.
+The devices labeled "(GPU Supported)" support VirGL hardware accelerated rendering. You will also see an informational toggle that is enabled when the display card supports accelerated rendering. Currently, the drivers to support this feature are Linux only. VirGL is an experimental feature and not all applications are supported. Some 3D games and applications may crash or freeze up the VM.
 
 ### VGA Device RAM
-Certain VGA devices support the option to increase the VGA RAM in order to support larger framebuffer sizes. This is NOT VRAM and does not affect rendering performance. Most users do not need to change this.
+Certain VGA devices support the option to increase the VGA RAM in order to support larger framebuffer sizes. This is NOT VRAM and does not affect rendering performance. Most users do not need to change this. This option is only applicable to VGA display cards and will not be shown otherwise.
 
 ## Auto Resolution
 This enables automatic resolution changing when the window size changes. Guest support is required. See [this page]({% link guest-support/dynamic-resolution.md %}) for more details.

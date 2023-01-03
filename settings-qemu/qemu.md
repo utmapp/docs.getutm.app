@@ -28,6 +28,13 @@ When the [target architecture matches the host]({% link settings-qemu/system.md 
 
 **iOS**{: .label .label-blue } This option is not supported on most installations. See [the install guide]({% link installation/ios.md %}) for more details.
 
+### Use TSO
+TSO (Total Store Ordering) is an Apple Silicon hardware feature that enhances performance of x86 emulators such as [FEX-Emu](https://github.com/FEX-Emu/FEX) on Apple Silicon. Note that it is recommended that TSO be disabled if you do not need to emulate x86 because it can reduce performance of other tasks. If this is enabled, be sure to disable software TSO in your emulator configuration. This option is only available when Hypervisor is enabled on Apple Silicon.
+
+**iOS**{: .label .label-blue } This option is not supported on most installations. See [the install guide]({% link installation/ios.md %}) for more details.
+
+**macOS**{: .label .label-green } This option is not supported on macOS however when using the Apple virtualization backend, [a similar option is available]({% link settings-apple/virtualization.md %}#macos-13-rosetta).
+
 ### Use local time for base clock
 This specifies the `-rtc base=localtime` option in QEMU. This synchronizes the guest clock to the local clock without any offsets. On some Linux guests, the RTC base is expected to be UTC and so this option should be disabled.
 

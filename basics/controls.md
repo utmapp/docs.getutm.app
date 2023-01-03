@@ -9,11 +9,14 @@ nav_order: 2
 [![]({% link assets/images/macos-vm-toolbar.png %})]({% link assets/images/macos-vm-toolbar.png %})
 [![]({% link assets/images/iphone-vm-toolbar.png %})]({% link assets/images/iphone-vm-toolbar.png %})
 
-1. Power off the virtual machine. This will discard any unsaved data. It is recommended that you shut down the virtual machine from the guest operating system.
+1. Power off the virtual machine. This will discard any unsaved data. It is recommended that you shut down the virtual machine from the guest operating system. **macOS**{: .label .label-green } You can long press on this button for additional power-down options:
+    1. *Request power down*: Sends power down request to the guest. This simulates pressing the power button on a PC.
+    2. *Force shut down*: Tells the VM process to shut down with risk of data corruption. This simulates holding down the power button on a PC. This is the default option.
+    3. *Force kill*: Force kill the VM process with high risk of data corruption.
 2. Suspend the virtual machine when supported.
 
 {: .note }
-The suspend feature will not work if any device that is in use does not support suspend. Additionally, QEMU hypervisor on Intel does not support suspend.
+The suspend feature will not work if any device that is in use does not support suspend. This typically includes emulated NVMe devices as well as GPU accelerated display cards. Additionally, QEMU hypervisor on Intel does not support suspend.
 
 {: style="counter-reset:none" }
 3. Reset the virtual machine. This will discard any unsaved data.
