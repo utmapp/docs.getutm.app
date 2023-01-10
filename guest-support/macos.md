@@ -17,7 +17,7 @@ In the [new VM wizard]({% link basics/basics.md %}), select "Virtualization" and
 Apple distributes macOS software in an IPSW file. UTM can download the latest compatible macOS automatically if you do not select an IPSW. You can also download IPSWs from a third party site such as [ipsw.me](https://ipsw.me/VirtualMac2,1).
 
 {: .warning }
-We do not attest to the safety, validity, or compatibility of IPSws downloaded from third party sites such as ipsw.me. We recommend using UTM's automatic download of the most compatible IPSW.
+We do not attest to the safety, validity, or compatibility of IPSWs downloaded from third party sites such as ipsw.me. We recommend using UTM's automatic download of the most compatible IPSW.
 
 ## Shared Directories
 
