@@ -46,3 +46,8 @@ If [QEMU SPICE WebDAV directory sharing]({% link settings-qemu/sharing.md %}#spi
 If you do not see the network drive, run `C:\Program File\SPICE webdavd\map-drive.bat`.
 
 [1]: https://github.com/utmapp/qemu/releases/download/v7.0.0-utm/spice-guest-tools-0.164.4.iso
+
+## Troubleshooting
+### No networking on Windows 11
+1. Shut down the VM
+2. In the Network section of the VM settings, try changing Network Mode from Shared Network to Emulated VLAN
