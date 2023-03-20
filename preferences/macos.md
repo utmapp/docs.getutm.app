@@ -21,6 +21,12 @@ If disabled, on next launch, the dock icon will be hidden. This is useful for [h
 ## **macOS 13+**{: .label .label-green } Show menu bar icon
 If enabled, a menu bar extra for UTM will be displayed. This allows you to quickly start and stop a VM as well as quit UTM.
 
+## Prevent system from sleeping...
+If enabled, system idle sleep will be disabled when *any* VM is running (including headless ones).
+
+## Do not show confirmation when closing...
+UTM will warn you when you attempt to close a window of a running VM or when you attempt to quit the application while there are still running VMs. Not properly shutting down a guest could result in data loss. This option will disable the prompt.
+
 ## Display
 
 ### VM display size is fixed
@@ -35,6 +41,11 @@ When a QEMU backend VM supports [GPU acceleration]({% link settings-qemu/devices
 ### FPS Limit
 By default, the operating system will synchronize the rendering of each frame to the refresh rate of the current display. However, there are cases where performance intensive applications may cause frame stalls and result in inconsistent frame times. You can use this option to lower the target frame rate in order to have a more consistent experience.
 
+## Sound
+
+### Sound Backend
+This allows you to specify the audio backend for QEMU VMs. The default will select the best available backend. If the selected backend is not available for any reason, it will fallback to another option.
+
 ## Input
 
 ### Hold Control for right click
@@ -45,6 +56,9 @@ The default combination is Control+Option which can be used to capture/release t
 
 ### Caps Lock treated as a key
 By default, Caps Lock is treated as a modifier state which is synchronized with the guest. However, some users (for example users of screen reader software) may find it useful to treat Caps Lock as a raw key. If enabled, the Caps Lock state may go out of sync with the host.
+
+### Num Lock is forced on
+For keyboards which do not have a num lock button, this will ensure the guest always treat the numeric pad as number keys. Since macOS does not support num lock, we do not attempt to synchronize the host num lock state (and keyboard LED) so this may result in the guest and host having the num lock state out of sync.
 
 ### Invert scrolling
 Scroll wheel and gestures are translated to mouse wheel events sent to the guest. If this option is enabled, the polarity of the event is inverted.
