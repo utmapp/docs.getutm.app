@@ -18,7 +18,7 @@ parent: Guides
 1. Open UTM and click the "+" button to open the VM creation wizard.
 2. Select "Virtualize".
 3. Select "Linux".
-4. Click "Browse" and select the Ubuntu Server ISO downloaded from the link above. Press "Next" to continue.
+4. Click "Browse" and select the Ubuntu Server ISO downloaded from the link above. Press "Continue" to continue.
 5. Pick the amount of RAM and CPU cores you wish to give access to the VM. Press "Next" to continue.
 6. Specify the maximum amount of drive space to allocate. Press "Next" to continue.
 6. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Next" to continue.
