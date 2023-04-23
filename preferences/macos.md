@@ -48,6 +48,9 @@ This allows you to specify the audio backend for QEMU VMs. The default will sele
 
 ## Input
 
+### Option is Meta key
+When using the built-in console, the Option key can be used as the Meta key. This means that the Esc key is set before the character that was pressed. This is useful for applications like Emacs which makes use of the Meta key. The downside is that international text entry is also handled by the Option key and so enabling this breaks that. You can toggle this option (per-window) while using the console with the key shortcut Command+Option+O.
+
 ### Hold Control for right click
 This is in addition to the usual way of generating a right click which is based on the system preference for a secondary click.
 
