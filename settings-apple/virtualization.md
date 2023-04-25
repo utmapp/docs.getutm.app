@@ -23,7 +23,9 @@ Keyboard support for macOS or **macOS 13+**{: .label .label-green } Linux bootin
 ## **macOS 12+**{: .label .label-green } Pointer
 Pointer support for macOS or **macOS 13+**{: .label .label-green } Linux booting from UEFI.
 
-**macOS 13+**{: .label .label-green } emulates a trackpad on macOS guests while earlier versions emulates a mouse on macOS. This allows support for trackpad gestures.
+## **macOS 13+**{: .label .label-green } Trackpad
+
+Emulates a trackpad for macOS guests. Requires Ventura or higher guest. This allows support for trackpad gestures.
 
 ## **macOS 13+**{: .label .label-green } Rosetta
 See [Rosetta]({% link advanced/rosetta.md %}) for more details.
