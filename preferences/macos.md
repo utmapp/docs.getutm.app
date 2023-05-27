@@ -44,7 +44,7 @@ By default, the operating system will synchronize the rendering of each frame to
 ## Sound
 
 ### Sound Backend
-This allows you to specify the audio backend for QEMU VMs. The default will select the best available backend. If the selected backend is not available for any reason, it will fallback to another option.
+This allows you to specify the audio backend for QEMU VMs. The default will select the best available backend. If the selected backend is not available for any reason, it will fallback to another option. CoreAudio has lower latency but does not support audio input (microphone).
 
 ## Input
 
