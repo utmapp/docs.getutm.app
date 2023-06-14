@@ -69,6 +69,14 @@ $ brew tap sidneys/homebrew
 $ brew install aria2 cabextract wimlib cdrtools sidneys/homebrew/chntpw
 ```
 
+update for Mac M1 Ventura 13.4 (22F66):
+```
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+$ brew tap minacle/chntpw
+$ brew install aria2 cabextract wimlib cdrtools minacle/chntpw/chntpw
+```
+for more details see https://github.com/sidneys/homebrew-homebrew/issues/2
+
 Then you can run `uup_download_macos.sh`
 
 ```
