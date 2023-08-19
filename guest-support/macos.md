@@ -27,8 +27,8 @@ We do not attest to the safety, validity, or compatibility of IPSws downloaded f
 When both the guest and host are running macOS 13 or higher, shared directories can be mounted as a network volume. You can mount the volume from Terminal:
 
 ```
-$ sudo mkdir [mount point]
-$ sudo mount -t virtiofs share [mount point]
+$ mkdir -m 777 -p [mount point]
+$ mount_virtiofs share [mount point]
 ```
 
 `[mount point]` can be any valid path such as `/Volumes/Share` as an example.
