@@ -1,0 +1,51 @@
+/* Hidden items -- modify show-hidden parameter in dictionary.xsl to show them. */
+[hidden=yes] { opacity: 0.5; }
+
+body, p, div, table { margin: 0; padding: 0; }
+
+/* Suite header. */
+table.suite { width: 100%; background: #bbb; margin: 3em 0 0.5em; }
+table.suite td { padding: 0.4em 0.5em; }
+table.suite tr td:first-child { font-weight: bold; font-size: larger; }
+table.suite tr td:first-child + td { text-align: right; }
+div.suite:first-child > table.suite { margin-top: 0; }
+
+/* Dictionary entries. */
+/* An "entry", loosely, defines a single term usable in a script, such as a class or property.  Graphically, it defines an indented block; its first "entry" child has a hanging indent such that it matches the indent of the enclosing block. */
+div.entry { padding-left: 1.5em; }
+div.entry > p.entry:first-child { text-indent: -1.5em; }
+
+/* Special rules for top-level entries. */
+.suite > div.entry { padding: 1em 2em; border-left: 0.75em solid transparent; }
+.suite > div.entry + div.entry { border-top: solid thin #ddd; }
+
+/* Fragments (i.e., sub-sections) within an entry. */
+div.fragment { margin-top: 1.0em; border-top: solid 1px #ddd; }
+div.fragment > p.label:first-child { font-size: larger; }
+
+/* Documentation blocks. */
+div.documentation { margin-top: 0.5em; margin-bottom: 0.5em; }
+div.documentation p { margin-top: 0; margin-bottom: 0.5em; }
+
+/* Code blocks. */
+code { color: black; }
+code.applescript { color: dimgray; }
+
+/* Header labels. */
+p.label {
+	text-transform: lowercase; font-variant: small-caps;
+	margin-top: 0.5em; margin-bottom: 0 !important;
+}
+div.documentation p.label {
+	font-variant: normal; font-size: small; font-style: italic;
+}
+
+/* Verb summaries. */
+div.verb-summary { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+/* Decorations for various elements.  Use of "content" is discouraged for now, because it doesn't show up when you copy/paste. */
+//span.description:before { content: " : "; }
+//span.type:before { content: "("; }
+//span.type:after  { content: ")"; }
+span.name { font-weight: bold; }
+span.annot { font-style: italic; }

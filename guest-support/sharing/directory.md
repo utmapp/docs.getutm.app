@@ -12,6 +12,9 @@ Directory sharing allows a host directory to be shared with the guest. There are
 2. **VirtFS** Requires 9pfs drivers and is currently only supported by the QEMU backend running Linux. It has better transfer speeds than SPICE WebDAV.
 3. **macOS 12+**{: .label .label-green } **VirtioFS** Requires virtiofs drivers and is currently only supported by the Apple backend running Linux.
 
+{: .note }
+**macOS**{: .label .label-green } Shared directories in macOS VMs are only available in macOS 13 and later (both guest and host).
+
 ## Selecting directory to share
 This can be done [from the details view]({% link basics/basics.md %}) near the bottom of the view.
 

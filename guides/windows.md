@@ -8,26 +8,20 @@ parent: Guides
 
 {% include toc.md %}
 
-This guide will help you create an Windows 10 or Windows 11 virtual machine from a fresh install.
+This guide will help you create a Windows 11 virtual machine from a fresh install.
 
-## Downloads
+## CrystalFetch
 
-* [UUP dump (Windows 10 21H2)](https://uupdump.net/known.php?q=21390)
-* [UUP dump (Windows 11 21H2)](https://uupdump.net/known.php?q=22000.1098)
-* [UUP dump (Windows 11 22H2)](https://uupdump.net/known.php?q=22621.674)
+The easiest way to obtain a Windows installer ISO is with CrystalFetch on macOS, a free utility based off of [UUPDump](https://uupdump.net).
 
-{: .warning }
-Windows 11 22H2 or later requires using Windows 10, version 2004 or later for the ISO to be properly created. The current script for macOS will output a broken ISO. If you do not have a Windows computer, you can install an older version of Windows in UTM first and use that to create an ISO for a newer version.
+[ Download on the App Store](https://apps.apple.com/app/crystalfetch-iso-downloader/id6454431289){: .btn .btn-green }
+[Download from GitHub](https://github.com/TuringSoftware/CrystalFetch/releases/latest/download/CrystalFetch.dmg){: .btn .btn-green }
 
+By default, the latest release or release preview build for the host architecture will be selected. You can change the filter to include pre-release builds as well as server builds. You can collapse the current architecture to find builds for other architectures (i.e. for emulation).
 
 ## Instructions
 
-1. Find the edition of Windows you want to install on [UUP dump](https://uupdump.net). Once you downloaded and extracted the installer creator, you need to run `uup_download_macos.sh` from Terminal to generate the ISO. (Read ["troubleshooting"](#cannot-run-uup_download_macossh) if you are having issues here.)
-
-{: .note }
-Make sure you select **arm64** if you are on Apple Silicon and **amd64** if you are on Intel!
-
-{: style="counter-reset:none" }
+1. Use CrystalFetch to download the latest installer ISO.
 2. Open UTM and click the "+" button to open the VM creation wizard.
 3. Select "Virtualize".
 4. Select "Windows".
@@ -43,37 +37,9 @@ Make sure you select **arm64** if you are on Apple Silicon and **amd64** if you 
 {: .label .label-yellow }
 **WIP**
 
-Check [this issue](https://github.com/utmapp/UTM/issues/3884) for more information.
+On the latest pre-release builds the Microsoft Store should be installed automatically. Older versions can follow [this guide](https://dabigblob.github.io/ms-store-arm64/) or check [this issue](https://github.com/utmapp/UTM/issues/3884) for more information.
 
 ## Troubleshooting
-
-### Cannot run `uup_download_macos.sh`
-
-In Terminal, go to the directory containing `uup_download_macos.sh`
-
-```
-$ cd path/to/extracted/files
-```
-
-Make sure that `uup_download_macos.sh` is executable by running
-
-```
-$ chmod +x uup_download_macos.sh
-```
-
-Make sure you have the prerequisites installed
-
-```
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-$ brew tap sidneys/homebrew
-$ brew install aria2 cabextract wimlib cdrtools sidneys/homebrew/chntpw
-```
-
-Then you can run `uup_download_macos.sh`
-
-```
-$ ./uup_download_macos.sh
-```
 
 ### Boots into EFI shell instead of Windows installer
 

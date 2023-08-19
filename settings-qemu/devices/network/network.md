@@ -37,7 +37,10 @@ This is the IP subnet where the guest IP is picked from.
 This is the IP of the host as seen from inside the guest subnet (when not isolated).
 
 ### DHCP Start
-(Emulated VLAN only) This is the first IP from the guest subnet where the built-in DHCP assigns from.
+This is the first IP from the guest subnet where the built-in DHCP assigns from.
+
+### DHCP End
+This is the last IP from the guest subnet where the built-in DHCP assigns from. If specified, the subnet mask from "Guest Network" is ignored.
 
 ### DHCP Domain Name
 (Emulated VLAN only) Domain name of the built in DHCP server.

@@ -21,7 +21,7 @@ UTM works on all devices running iOS 11 or higher if jailbroken. UTM can also be
 * Paid developer accounts must re-sign every 1 year
 
 {: .note }
-The latest version of UTM that supports iOS 11-13 is [v3.2.4](https://github.com/utmapp/UTM/releases/tag/v3.2.4).
+The last version of UTM that supports iOS 11-13 is [v3.2.4](https://github.com/utmapp/UTM/releases/tag/v3.2.4).
 
 **If you are running iOS 14.2, 14.3**: UTM works with sideloading (non-jailbroken) if your device has an Apple A12 chip or newer. Otherwise, keep reading.
 
@@ -45,7 +45,7 @@ For non beta-testers, the public release of AltStore lacks the ability to add re
 
 ### Other Methods
 
-There are many "cloud" signing services including AppCake that do **not** work with UTM because they use the wrong kind of signing certificate. If you get a crash or a black screen while trying to start a VM, it is likely that your signing certificate was invalid.
+There are many "cloud" signing services do **not** work with UTM because they use the wrong kind of signing certificate. If you get a crash or a black screen while trying to start a VM, it is likely that your signing certificate was invalid.
 
 You can check if you have the right signing certificate by going to `Settings -> General -> Profiles & Device Management`. If the certificate used for signing UTM is listed under `Developer App`, then it is good. If it is listed under anything else such as `Enterprise App`, then it is the wrong certificate.
 
@@ -58,8 +58,6 @@ If your device runs [TrollStore][11], then UTM can support additional features s
 
 {: .note }
 You cannot install the normal IPA (UTM.ipa) because it includes the `dynamic-codesigning` entitlements which TrollStore does not support.
-
-In order to use JIT with a TrollStore install, you must also install [Jitterbug][9] or use [Jitstreamer][10].
 
 ## Jailbroken Devices
 
@@ -74,7 +72,7 @@ UTM requires AppSync Unified which can be found on [Karen's Repo][8]. You need t
 |------|------------|--------------|-----|-----------|-----|
 | [UTM.deb](https://github.com/utmapp/UTM/releases/latest/download/UTM.deb) | Jailbroken iOS version | Open in Cydia, dpkg, or Sileo | Yes | Yes(1) | Yes |
 | [UTM.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.ipa) | Non-jailbroken iOS version (sideloading) | AltStore, etc (see guide) | Yes(2) | No | No |
-| [UTM.HV.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.HV.ipa) | Non-jailbroken iOS version (TrollStore) | TrollStore | Yes(2) | Yes(1) | Yes |
+| [UTM.HV.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.HV.ipa) | Non-jailbroken iOS version (TrollStore) | TrollStore | Yes | Yes(1) | Yes |
 | [UTM.SE.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.SE.ipa) | Non-jailbroken iOS version (sideloading) | AltStore, enterprise signing, etc | No | No | No |
 
 1. Hypervisor on iOS requires an M1 iPad.

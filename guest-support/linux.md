@@ -46,6 +46,27 @@ These systems will typically already have SPICE agent installed.
 $ sudo pacman -S spice-vdagent
 ```
 
+## QEMU Agent
+Additional features such as time syncing and [scripting]({% link scripting/scripting.md %}) are supported by the QEMU agent.
+
+### Ubuntu, Debian, apt based
+
+```
+$ sudo apt install qemu-guest-agent
+```
+
+### Fedora, CentOS, RPM based
+
+```
+$ sudo yum install qemu-guest-agent
+```
+
+### ArchLinux
+
+```
+$ sudo pacman -S qemu-guest-agent
+```
+
 ## SPICE WebDAV
 SPICE WebDAV is required for [QEMU directory sharing]({% link settings-qemu/sharing.md %}#spice-webdav) as an alternative to VirtFS.
 
