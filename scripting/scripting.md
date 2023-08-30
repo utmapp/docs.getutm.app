@@ -30,7 +30,7 @@ The CLI tool is a wrapper around the AppleScript interface and provides easy acc
 It is recommended you "install" this by creating a symbolic link to your `bin` directory:
 
 ```
-$ sudo ln -sf /Applications/UTM.app/Contents/MacOS/utmctl /usr/local/bin
+$ sudo ln -sf /Applications/UTM.app/Contents/MacOS/utmctl /usr/local/bin/utmctl
 ```
 
 Run the tool without any arguments to see the help documentation and a list of available commands.
