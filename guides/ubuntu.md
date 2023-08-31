@@ -23,7 +23,8 @@ parent: Guides
 6. Specify the maximum amount of drive space to allocate. Press "Continue" to continue.
 7. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Continue" to continue.
 8. Press "Save" to create the VM and press the Run button to start the VM.
-9. Go through the Ubuntu installer. If the reboot fails, you can manually quit the VM, unmount the installer ISO, and start the VM again to boot into your new installation.
+9. Go through the Ubuntu installer. At the end, you'll have the option to "Reboot Now," but after selecting that option and rebooting, the reboot will fail. (It will hang at a black screen with a blinking cursor.) This is expected!
+10. Manually quit the VM, unmount the installer ISO, and start the VM again to boot into your new installation.
 
 ## Installing Ubuntu Desktop
 
