@@ -160,4 +160,19 @@ tell application "UTM"
 end tell
 ```
 
+## USB Devices
+
+```applescript
+tell application "UTM"
+    --- get first USB device connected to the host
+	set device to first usb device
+    --- get the VM that is running
+	set vm to virtual machine named "Ubuntu"
+    --- connect the device to the VM
+    connect device to vm
+    --- disconnect the device from the VM
+	disconnect device
+end tell
+```
+
 {% endraw %}
