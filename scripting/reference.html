@@ -32,7 +32,7 @@ parent: Scripting
 </div>
         
         <div class="entry" id="UTM-Suite.application">
-<p class="entry"><span class="name">application</span>&ensp;<span class="annot">n</span> : <span class="description">An application's top level scripting object.</span></p>
+<p class="entry"><span class="name">application</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-USB-Devices-Suite.application">UTM USB Devices Suite</a>] : <span class="description">An application's top level scripting object.</span></p>
 <p class="label">Elements</p>
 <p>contains <span><a href="#UTM-Suite.virtual-machine">virtual machines</a></span>.</p>
 <p class="label">Properties</p>
@@ -124,7 +124,7 @@ parent: Scripting
 </div>
         
         <div class="entry" id="UTM-Suite.virtual-machine">
-<p class="entry"><span class="name">virtual machine</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-Guest-Suite.virtual-machine">UTM Guest Suite</a>, <a href="#UTM-Configuration-Suite.virtual-machine">UTM Configuration Suite</a>] : <span class="description">A virtual machine registered in UTM.</span></p>
+<p class="entry"><span class="name">virtual machine</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-Guest-Suite.virtual-machine">UTM Guest Suite</a>, <a href="#UTM-Configuration-Suite.virtual-machine">UTM Configuration Suite</a>, <a href="#UTM-USB-Devices-Suite.virtual-machine">UTM USB Devices Suite</a>] : <span class="description">A virtual machine registered in UTM.</span></p>
 <p class="label">Elements</p>
 <p>contains <span><a href="#UTM-Suite.serial-port">serial ports</a></span>; contained by <span>application</span>.</p>
 <p class="label">Properties</p>
@@ -155,7 +155,7 @@ parent: Scripting
         
         
         <div class="entry" id="UTM-Guest-Suite.virtual-machine">
-<p class="entry"><span class="name">virtual machine</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-Suite.virtual-machine">UTM Suite</a>, <a href="#UTM-Configuration-Suite.virtual-machine">UTM Configuration Suite</a>] : <span class="description">Guest agent access.</span></p>
+<p class="entry"><span class="name">virtual machine</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-Suite.virtual-machine">UTM Suite</a>, <a href="#UTM-Configuration-Suite.virtual-machine">UTM Configuration Suite</a>, <a href="#UTM-USB-Devices-Suite.virtual-machine">UTM USB Devices Suite</a>] : <span class="description">Guest agent access.</span></p>
 <p class="label">Elements</p>
 <p>contains <span><a href="#UTM-Guest-Suite.guest-file">guest files</a></span>, <span><a href="#UTM-Guest-Suite.guest-process">guest processes</a></span>.</p>
 <p class="label">responds to</p>
@@ -380,7 +380,7 @@ parent: Scripting
         
         
         <div class="entry" id="UTM-Configuration-Suite.virtual-machine">
-<p class="entry"><span class="name">virtual machine</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-Suite.virtual-machine">UTM Suite</a>, <a href="#UTM-Guest-Suite.virtual-machine">UTM Guest Suite</a>] : <span class="description">Virtual machine configuration.</span></p>
+<p class="entry"><span class="name">virtual machine</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-Suite.virtual-machine">UTM Suite</a>, <a href="#UTM-Guest-Suite.virtual-machine">UTM Guest Suite</a>, <a href="#UTM-USB-Devices-Suite.virtual-machine">UTM USB Devices Suite</a>] : <span class="description">Virtual machine configuration.</span></p>
 <p class="label">Properties</p>
 <div class="entry" id="UTM-Configuration-Suite.virtual-machine.configuration">
 <p class="entry"><span class="name">configuration</span> <span class="type">(<a href="#UTM-Configuration-Suite.qemu-configuration">qemu configuration</a> or <a href="#UTM-Configuration-Suite.apple-configuration">apple configuration</a>, r/o)</span> : <span class="description">The configuration of the virtual machine.</span></p>
@@ -555,5 +555,56 @@ parent: Scripting
 <p class="label">Properties</p>
 <div class="entry" id="UTM-Configuration-Suite.apple-serial-configuration.index"><p class="entry"><span class="name">index</span> <span class="type">(integer)</span> : <span class="description">The position of the configuration to update. It can be empty to create a new device. Index is invalid after updating the configuration and must be reset to the current position.</span></p></div>
 <div class="entry" id="UTM-Configuration-Suite.apple-serial-configuration.interface"><p class="entry"><span class="name">interface</span> <span class="type">(ptty/‌tcp/‌unavailable)</span> : <span class="description">The type of serial interface on the host (only PTTY is supported).</span></p></div>
+</div>
+    </div>
+    
+    <div class="suite" id="UTM-USB-Devices-Suite">
+<table class="suite"><tr>
+<td>UTM USB Devices Suite</td>
+<td>UTM virtual machine USB devices suite. Use this to connect USB devices from the host to the guest.</td>
+</tr></table>
+        
+        
+        <div class="entry" id="UTM-USB-Devices-Suite.application">
+<p class="entry"><span class="name">application</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-Suite.application">UTM Suite</a>] : <span class="description">An application's top level scripting object.</span></p>
+<p class="label">Elements</p>
+<p>contains <span><a href="#UTM-USB-Devices-Suite.usb-device">usb devices</a></span>.</p>
+</div>
+        
+        <div class="entry" id="UTM-USB-Devices-Suite.usb-device">
+<p class="entry"><span class="name">usb device</span>&ensp;<span class="annot">n</span> : <span class="description">A host USB device that is shared with the guest.</span></p>
+<p class="label">Elements</p>
+<p>contained by <span>application</span>, <span><a href="#UTM-Suite.virtual-machine">virtual machines</a></span>.</p>
+<p class="label">Properties</p>
+<div class="entry" id="UTM-USB-Devices-Suite.usb-device.id"><p class="entry"><span class="name">id</span> <span class="type">(integer, r/o)</span> : <span class="description">A unique identifier corrosponding to the USB bus and port number.</span></p></div>
+<div class="entry" id="UTM-USB-Devices-Suite.usb-device.name"><p class="entry"><span class="name">name</span> <span class="type">(text, r/o)</span> : <span class="description">The name of the USB device.</span></p></div>
+<div class="entry" id="UTM-USB-Devices-Suite.usb-device.manufacturer-name"><p class="entry"><span class="name">manufacturer name</span> <span class="type">(text, r/o)</span> : <span class="description">The product name described by the iManufacturer descriptor.</span></p></div>
+<div class="entry" id="UTM-USB-Devices-Suite.usb-device.product-name"><p class="entry"><span class="name">product name</span> <span class="type">(text, r/o)</span> : <span class="description">The product name described by the iProduct descriptor.</span></p></div>
+<div class="entry" id="UTM-USB-Devices-Suite.usb-device.vendor-id"><p class="entry"><span class="name">vendor id</span> <span class="type">(integer, r/o)</span> : <span class="description">The vendor ID described by the idVendor descriptor.</span></p></div>
+<div class="entry" id="UTM-USB-Devices-Suite.usb-device.product-id"><p class="entry"><span class="name">product id</span> <span class="type">(integer, r/o)</span> : <span class="description">The product ID described by the idProduct descriptor.</span></p></div>
+<p class="label">responds to</p>
+<a href="#UTM-USB-Devices-Suite.connect">connect</a>, <a href="#UTM-USB-Devices-Suite.disconnect">disconnect</a>.</div>
+        
+        <div class="entry" id="UTM-USB-Devices-Suite.virtual-machine">
+<p class="entry"><span class="name">virtual machine</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-Suite.virtual-machine">UTM Suite</a>, <a href="#UTM-Guest-Suite.virtual-machine">UTM Guest Suite</a>, <a href="#UTM-Configuration-Suite.virtual-machine">UTM Configuration Suite</a>] : <span class="description">Virtual machine USB devices.</span></p>
+<p class="label">Elements</p>
+<p>contains <span><a href="#UTM-USB-Devices-Suite.usb-device">usb devices</a></span>.</p>
+</div>
+        
+        <div class="entry" id="UTM-USB-Devices-Suite.connect">
+<p class="entry"><span class="name">connect</span>&ensp;<span class="annot">v</span> : <span class="description">Connect a USB device to a running VM and remove it from the host.</span></p>
+<div class="entry verb-summary">
+<p class="entry"><span class="name">connect</span> <span><a href="#UTM-USB-Devices-Suite.usb-device">usb device</a> : <span class="description">The USB device to connect to the VM.</span></span></p>
+<div class="entry">
+<p class="entry"><span class="name">to</span> <a href="#UTM-Suite.virtual-machine">virtual machine</a> : <span class="description">The virtual machine to connect. The virtual machine must be running. Not all backends support USB sharing.</span></p>
+            
+            
+          </div>
+</div>
+</div>
+        
+        <div class="entry" id="UTM-USB-Devices-Suite.disconnect">
+<p class="entry"><span class="name">disconnect</span>&ensp;<span class="annot">v</span> : <span class="description">Disconnect a USB device from the guest and re-assign it to the host.</span></p>
+<div class="entry verb-summary"><p class="entry"><span class="name">disconnect</span> <span><a href="#UTM-USB-Devices-Suite.usb-device">usb device</a> : <span class="description">The USB device to disconnect.</span></span></p></div>
 </div>
     </div>
