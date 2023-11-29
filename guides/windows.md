@@ -34,8 +34,13 @@ By default, the latest release or release preview build for the host architectur
 
 ### Installing the Microsoft Store and UWP apps (optional)
 
-{: .label .label-yellow }
-**WIP**
+To install Microsoft store open cmd or PowerShell with administrator righs and execute command:
+
+```
+wsreset.exe -i
+```
+
+Shortly after that Microsoft Store will be installed and show up in the applications list.
 
 On the latest pre-release builds the Microsoft Store should be installed automatically. Older versions can follow [this guide](https://dabigblob.github.io/ms-store-arm64/) or check [this issue](https://github.com/utmapp/UTM/issues/3884) for more information.
 
