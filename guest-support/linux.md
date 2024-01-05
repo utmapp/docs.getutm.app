@@ -123,7 +123,7 @@ Alternatively, you can install `bindfs` and use the following `/etc/fstab` inste
 
 ```
 share	/mnt/macos	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0
-/mnt/macos    [mount point] fuse.bindfs map=501/1000:@20/@1000,x-systemd.requires=/mnt/macos 0 0
+/mnt/macos    [mount point] fuse.bindfs map=501/1000:@20/@1000,x-systemd.requires=share 0 0
 ```
 
 ## **macOS**{: .label .label-green } VirtioFS
