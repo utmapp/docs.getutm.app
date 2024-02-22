@@ -55,7 +55,7 @@ If you get this message trying to install Windows 11, you can bypass it with the
 
 1. Press **Shift+F10** to open Command Prompt and type in `regedit.exe` to launch Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SYSTEM\Setup**
-3. Right click on the **Setup** key on the left size and choose New -> Key.
+3. Right click on the **Setup** key on the left side and choose New -> Key.
 4. Create a key named `LabConfig`
 5. Select the **LabConfig** key.
 6. Create two new values: Choose New -> DWORD (32-bit) and create `BypassTPMCheck` and `BypassSecureBootCheck`. Set both values to 1.
