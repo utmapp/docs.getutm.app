@@ -51,7 +51,7 @@ You are using a version of Windows that is too old. The build number should be 2
 
 ### "This PC can't run Windows 11"
 
-If you get this message trying to install Windows 11, it can be due to the missing trusted platform module (TPM), which you can bypass it with the following steps:
+If you get this message trying to install Windows 11, it can be due to the missing trusted platform module (TPM), which you can bypass with the following steps:
 
 1. Press **Shift+F10** to open Command Prompt and type in `regedit.exe` to launch Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SYSTEM\Setup**
