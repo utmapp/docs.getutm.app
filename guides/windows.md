@@ -51,7 +51,7 @@ You are using a version of Windows that is too old. The build number should be 2
 
 ### "This PC can't run Windows 11"
 
-If you get this message trying to install Windows 11, you can bypass it with the following steps:
+If you get this message trying to install Windows 11, it can be due to the missing trusted platform module (TPM), which you can bypass it with the following steps:
 
 1. Press **Shift+F10** to open Command Prompt and type in `regedit.exe` to launch Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SYSTEM\Setup**
@@ -61,6 +61,8 @@ If you get this message trying to install Windows 11, you can bypass it with the
 6. Create two new values: Choose New -> DWORD (32-bit) and create `BypassTPMCheck` and `BypassSecureBootCheck`. Set both values to 1.
 7. Close out of Registry Editor and Command Prompt.
 8. In setup, press the back button and then Next to continue installation.
+
+If you are trying to emulate a Windows 11 x86_64 guest on an Apple Silicon (arm) host, this error can be due to UTM's VM creation assistant configuration setting for number of threads. If you left it to default/blank, it defaults to 1 thread. Windows requires >1 thread. Therefore to fix this, you can power down the guest, go to the VM system settings, and set a core count > 1. Then boot the VM again, it should work.
 
 ### Ping does not work
 
