@@ -30,7 +30,7 @@ By default, the latest release or release preview build for the host architectur
 7. Specify the maximum amount of drive space to allocate. Press "Next" to continue.
 8. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Next" to continue.
 9. Press "Save" to create the VM. Wait for the guest tools to finish downloading and press the Run button to start the VM.
-10. Follow the Windows installer. If you have issues with the mouse, press the mouse capture button in the toolbar to send mouse input directly. Press Control+Option together to exit mouse capture mode. Sometimes, due to driver issues, you can enter and exit capture mode and the mouse cursor works normally again.
+10. Press any key to start the Windows installer and follow the instructions on screen. If you have issues with the mouse, press the mouse capture button in the toolbar to send mouse input directly. Press Control+Option together to exit mouse capture mode. Sometimes, due to driver issues, you can enter and exit capture mode and the mouse cursor works normally again.
 
 ### Installing the Microsoft Store and UWP apps (optional)
 
@@ -43,7 +43,7 @@ On the latest pre-release builds the Microsoft Store should be installed automat
 
 ### Boots into EFI shell instead of Windows installer
 
-Make sure you generated the right ISO for your architecture. Note that **arm64** is for Apple Silicon and **amd64** is for Intel.
+First, make sure that you pressed any key during boot to enter the installer. Also, make sure you generated the right ISO for your architecture. Note that **arm64** is for Apple Silicon and **amd64** is for Intel.
 
 ### Installer crashes with BSOD `SYSTEM_THREAD_EXCEPTION_NOT_HANDLED`
 
