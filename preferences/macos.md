@@ -29,9 +29,6 @@ UTM will warn you when you attempt to close a window of a running VM or when you
 
 ## Display
 
-### VM display size is fixed
-If enabled, do not allow resizing of the VM window. If disabled, resizing the VM window will zoom/scale the content if SPICE guest tools are not installed or the VM uses Apple backend. If SPICE guest tools are installed and the VM uses the QEMU backend and this option is disabled, the guest will attempt to change resolution to match the window size.
-
 ### Do not save VM screenshot...
 For privacy reasons, you may not want UTM to automatically capture a screenshot every 30 seconds and store it in the .utm package. Note that existing screenshots will not be deleted until the next time the VM is started.
 
@@ -47,6 +44,12 @@ By default, the operating system will synchronize the rendering of each frame to
 This allows you to specify the audio backend for QEMU VMs. The default will select the best available backend. If the selected backend is not available for any reason, it will fallback to another option. CoreAudio has lower latency but does not support audio input (microphone).
 
 ## Input
+
+### Capture input automatically when entering full screen
+Only for QEMU backend VMs. When full screen is entered, the cursor and keyboard input will automatically be captured. In order to release the capture, you must use the capture/release hotkey (Control+Option unless changed).
+
+### Capture input automatically when window is focused
+Only for QEMU backend VMs. When a VM is started or when a VM window is clicked on, the cursor and keyboard input will be captured.
 
 ### Option is Meta key
 When using the built-in console, the Option key can be used as the Meta key. This means that the Esc key is set before the character that was pressed. This is useful for applications like Emacs which makes use of the Meta key. The downside is that international text entry is also handled by the Option key and so enabling this breaks that. You can toggle this option (per-window) while using the console with the key shortcut Command+Option+O.

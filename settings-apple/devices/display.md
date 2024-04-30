@@ -14,3 +14,6 @@ The resolution used by the guest to render graphics. A list of the most common r
 
 ## HiDPI (Retina)
 If **disabled**, native scaling performed by the host operating system will be performed. If **enabled**, the resolution seen by the guest will be the value specified above multiplied by the scale factor of the current display. For example, a "retina" display is typically 2x or 3x the resolution. This will allow the guest to do its own HiDPI rendering and scaling. This is discouraged because host scaling is usually more efficient.
+
+## **macOS 14+**{: .label .label-green } Dynamic Resolution
+If both the guest and host are running macOS Sonoma or higher and this option is enabled, then the display resolution will automatically update to the size of the window hosting the VM.
