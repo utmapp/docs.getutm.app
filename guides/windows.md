@@ -51,7 +51,11 @@ You are using a version of Windows that is too old. The build number should be 2
 
 ### "This PC can't run Windows 11"
 
-If you get this message trying to install Windows 11, you can bypass it with the following steps:
+If you get this message trying to install Windows 11, there can be a number of possible reasons.
+
+#### Secure Boot
+
+On newer versions of UTM, Secure Boot and TPM should be enabled automatically. You can also enable it manually in Settings under [QEMU]({% link settings-qemu/qemu.md %}#tpm-20-device). If you are on an older version of UTM, you can disable the checks in the Windows installer:
 
 1. Press **Shift+F10** to open Command Prompt and type in `regedit.exe` to launch Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SYSTEM\Setup**
@@ -61,6 +65,12 @@ If you get this message trying to install Windows 11, you can bypass it with the
 6. Create two new values: Choose New -> DWORD (32-bit) and create `BypassTPMCheck` and `BypassSecureBootCheck`. Set both values to 1.
 7. Close out of Registry Editor and Command Prompt.
 8. In setup, press the back button and then Next to continue installation.
+
+#### Core count
+
+Windows require at least 2 cores to install. If you are installing x86_64 Windows on an Intel Mac or ARM64 Windows on an Apple Silicon Mac, the default setting will be to use the number of cores on your system. However, if you are installing x86_64 Windows on an Apple Silicon Mac, the default setting is to use only a single core. This is because due to memory ordering requirements, emulating multiple x86_64 cores on an ARM64 system will be done on a single core and thus reduce performance.
+
+At the cost of correctness, you can force multiple cores by going to the [System]({% link settings-qemu/system.md %}#cpu) settings and changing the number of cores to 2 or higher and checking "Force multicore." Note that you may occasionally experience odd crashes as a result of this.
 
 ### Ping does not work
 
