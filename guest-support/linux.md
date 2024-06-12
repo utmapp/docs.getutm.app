@@ -92,6 +92,43 @@ $ sudo yum install spice-webdavd
 $ sudo pacman -S phodav
 ```
 
+### Mount via `davfs2`
+
+Once you can verify WebDAV runs via `curl http://127.0.0.1:9843` you could use `davfs2` to mount the shared directory. 
+
+Mount it via `sudo mkdir /media/dav; sudo mount -t davfs -o noexec http://127.0.0.1:9843 /media/dav/`.
+
+To enable auto-mounting and/or mounting without root, add your user to the `davfs2` group: 
+
+```
+sudo usermod -a -G davfs2 $USER
+```
+
+Relog to apply the changes.
+
+Write a local davfs2 config at `$HOME/.davfs2/davfs2.conf`:
+
+```
+secrets               ~/.davfs2/secrets
+```
+
+And your secrets at `$HOME/.davfs2/secrets`:
+
+```
+127.0.0.1:9843        guest-username       guest-password
+/media/dav            host-username        host-password
+```
+
+And add this entry to `/etc/fstab`:
+
+```
+http://127.0.0.1:9843 /media/dav davfs noauto,user 0 0
+```
+
+Protect files with `sudo chmod 0700 $HOME/.davfs2/cache && sudo chmod 600 $HOME/.davfs2/secrets`. Then you can verify mounting without sudo via `mount /media/dav` and it should connect without prompt. 
+
+Now replace `noauto` with `auto` within the new `/etc/fstab` entry to enable auto-mounting at boot.
+
 ## VirtFS
 VirtFS enables [QEMU directory sharing]({% link settings-qemu/sharing.md %}#virtfs) as an alternative to SPICE WebDAV.
 
