@@ -139,7 +139,10 @@ $ sudo mkdir [mount point]
 $ sudo mount -t virtiofs share [mount point]
 ```
 
-Where `[mount point]` is the desired destination path. For example: `/media/share`.
+Where `[mount point]` is the desired destination path. For example: `/media/share`. Note the `share` name above: this is the
+exact literal, and all shared folders will appear under it.
+
+Also note: you might need to restart the VM if you've added the first shared directory while the VM was running.
 
 You can also modify `/etc/fstab` and add the following line to automatically mount the share on startup:
 
