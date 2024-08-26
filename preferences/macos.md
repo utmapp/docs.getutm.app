@@ -73,3 +73,20 @@ Scroll wheel and gestures are translated to mouse wheel events sent to the guest
 
 ### Do not prompt...
 When a new USB device is plugged in, the currently active VM will ask the user if they wish to connect the device to the VM. This option will disable that prompt.
+
+## Server
+
+## Automatically start UTM server
+When checked, UTM server will attempt to start immediately if it is not already started. UTM server will also start when UTM is launched.
+
+## Reject unknown connections by default
+New clients must be trusted by the host before they can connect. When a new client attempts to connect, you will receive a notification allowing you to check the fingerprint and then accept or reject the connection. If a connection is rejected, the notification will not show up for any connection attempts and must be manually accepted in the client list. When this option is checked, every connection attempt will be rejected by default (showing no notification) and each connection must be manually reviewed and trusted in the client list.
+
+## Allow access from external clients
+By default, UTM server will only permit connections from the local network (LAN). When this option is checked, UTM server will permit connections from outside the local network (WAN) including the internet if your router is set up correctly to forward traffic.
+
+## Listen port
+By default, UTM server communicates with UPnP which allocates a UDP port dynamically and is discoverable through Bonjour to other devices on the same network. If you put in a port number, UTM server will also listen on that TCP port for connections. This is required if you allow access from external clients.
+
+## Require password
+When checked, clients must provide the correct password (as specified in the text field below) in order to attempt a connection. This option is highly recommended if you choose to allow access from external clients.
