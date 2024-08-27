@@ -33,4 +33,10 @@ It is recommended you "install" this by creating a symbolic link to your `bin` d
 $ sudo ln -sf /Applications/UTM.app/Contents/MacOS/utmctl /usr/local/bin/utmctl
 ```
 
+If you installed UTM to another directory, the symbolic link will not work properly. Instead, you need to add the directory containing `utmctl` to your PATH variable:
+
+```
+$ echo "/path/to/UTM.app/Contents/MacOS" | sudo tee /etc/paths.d/10-utm
+```
+
 Run the tool without any arguments to see the help documentation and a list of available commands.
