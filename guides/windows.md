@@ -91,3 +91,13 @@ If Windows 11 setup is stuck due to lack of network connection:
 ### SPICE tools did not install automatically
 
 See [this page]({% link guest-support/windows.md %}#windows-xp-and-higher) for more details.
+
+### "Why did my PC restart" blue screen
+
+This is likely due to using the "Shared" network mode[^1]. If so, try switching to a "Bridged" network mode instead.
+
+1. Edit Virtual Machine
+2. Under "Devices" select "Networks"
+3. If the "Network Mode" is `Shared Network` select `Bridged (Advanced)` instead
+
+[^1]: https://github.com/utmapp/UTM/issues/3411
