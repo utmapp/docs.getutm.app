@@ -24,14 +24,19 @@ We do not attest to the safety, validity, or compatibility of IPSWs downloaded f
 ### VirtioFS
 {: .label .label-green }
 **macOS 13+**
-When both the guest and host are running macOS 13 or higher, shared directories can be mounted as a network volume. You can mount the volume from Terminal:
+When both the guest and host are running macOS 13 or higher, shared directories can be mounted as a network volume. You can mount the volume from the host Terminal:
 
 ```
-$ mkdir -m 777 -p [mount point]
-$ mount_virtiofs share [mount point]
+mkdir -m 777 -p [host mount point]
 ```
 
-`[mount point]` can be any valid path such as `/Volumes/Share` as an example.
+Then mount the volume from guest Terminal:
+
+```
+mount_virtiofs share [guest mount point]
+```
+
+`[mount point]` can be any valid path such as `/Volumes/Share` as an example. Guest and host mount points do not need to match each other
 
 ### Network sharing
 Another way of sharing files between the host and guest (including support for macOS 12) is to use the network file sharing feature of macOS running on the host. You can do it from "System Preferences" under the "Sharing" category. Check out [Apple's user guide](https://support.apple.com/guide/mac-help/set-up-file-sharing-on-mac-mh17131/mac) for more details. Once a network share is set up, your macOS guest can connect to it just like any other Mac.
