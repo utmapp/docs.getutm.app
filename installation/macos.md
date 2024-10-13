@@ -12,6 +12,13 @@ The easiest way to install UTM is from the Mac App Store.
 
 [ Download on the App Store](https://apps.apple.com/us/app/utm-virtual-machines/id1538878817){: .btn .btn-green }
 
+## Homebrew
+[Homebrew](https://brew.sh/) offers the stable version and the latest build as casks:
+
+```brew install --cask utm```
+
+```brew install --cask utm@beta```
+
 ## GitHub
 You can also download the latest stable version of UTM from GitHub.
 
