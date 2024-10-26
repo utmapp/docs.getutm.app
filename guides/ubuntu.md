@@ -34,6 +34,17 @@ $ sudo apt update
 $ sudo apt install ubuntu-desktop
 $ sudo reboot
 ```
+On ARM64 it has been reported that doing this may enable two wait services: NetworkManager-wait-online.service and systemd-networkd-wait-online.service that causes a black screen at boot.
+To verify the fix is needed one can run:
+
+```bash
+systemctl is-enabled NetworkManager-wait-online.service systemd-networkd-wait-online.service
+```
+
+If you see two lines showing 'enabled' instead of one, the one that should be disabled can be done like:
+```bash
+systemctl disable systemd-networkd.service
+```
 
 ## Enable clipboard and directory sharing
 
