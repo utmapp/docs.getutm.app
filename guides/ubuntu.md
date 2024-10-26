@@ -57,3 +57,18 @@ If the hardware enumeration order changes, your network settings may need to be 
 1. Run `ip link show` and look at the last adapter name. For example, it may be listed as `enp0s1`.
 2. Edit `/etc/netplan/00-installer-config.yaml` and copy your configuration for `enp0s8` (or whatever the old adapter was named) and paste it immediately after for `enp0s1` (or whatever the new adapter is named).
 3. Reboot and you should be able to use networking again.
+
+### Black screen during boot
+On ARM64 it has been reported that doing this may enable two wait services: NetworkManager-wait-online.service and systemd-networkd-wait-online.service that causes a black screen at boot.
+To verify the fix is needed one can run:
+
+```bash
+systemctl is-enabled NetworkManager-wait-online.service systemd-networkd-wait-online.service
+```
+
+If you see two lines showing 'enabled' instead of one, the one that should be disabled can be done like:
+```bash
+systemctl disable systemd-networkd.service
+```
+
+You can create a serial device in the VM settings to access the command line and run the commands if nothing shows up on screen.
