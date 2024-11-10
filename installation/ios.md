@@ -68,8 +68,8 @@ UTM requires AppSync Unified which can be found on [Karen's Repo][8]. You need t
 |------|------------|--------------|-----|-----------|-----|
 | [UTM.deb](https://github.com/utmapp/UTM/releases/latest/download/UTM.deb) | Jailbroken iOS version | Open in Cydia, dpkg, or Sileo | Yes | Yes(1) | Yes |
 | [UTM.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.ipa) | Non-jailbroken iOS version (sideloading) | AltStore, etc (see guide) | Yes(2) | No | No |
-| [UTM.HV.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.HV.ipa) | Non-jailbroken iOS version (TrollStore) | TrollStore | Yes | Yes(1) | Yes |
-| [UTM.SE.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM.SE.ipa) | Non-jailbroken iOS version (sideloading) | AltStore, enterprise signing, etc | No | No | No |
+| [UTM.HV.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM-HV.ipa) | Non-jailbroken iOS version (TrollStore) | TrollStore | Yes | Yes(1) | Yes |
+| [UTM.SE.ipa](https://github.com/utmapp/UTM/releases/latest/download/UTM-SE.ipa) | Non-jailbroken iOS version (sideloading) | AltStore, enterprise signing, etc | No | No | No |
 
 1. Hypervisor on iOS requires an M1 iPad or newer.
 2. Enabling JIT may require a separate JIT enabler such as [Jitterbug][9] or [Jitstreamer][10].
