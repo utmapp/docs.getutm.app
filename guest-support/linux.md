@@ -93,7 +93,7 @@ $ sudo pacman -S phodav
 ```
 
 ## VirtFS
-VirtFS enables [QEMU directory sharing]({% link settings-qemu/sharing.md %}#virtfs) as an alternative to SPICE WebDAV.
+VirtFS enables [QEMU directory sharing]({% link settings-qemu/sharing.md %}#virtfs) as an alternative to SPICE WebDAV. Note that VirtFS sharing must be enabled in the settings and you cannot use it at the same time as WebDAV directory sharing.
 
 After making sure your Linux installation [supports 9pfs](#drivers), you can automatically mount the share by adding the following entry to your `/etc/fstab`:
 
