@@ -10,14 +10,19 @@ parent: Guides
 
 This guide will help you create a Windows 11 virtual machine from a fresh install.
 
-## CrystalFetch
+## Obtain Windows
 
-The easiest way to obtain a Windows installer ISO is with CrystalFetch on macOS, a free utility based off of [UUPDump](https://uupdump.net).
+The easiest way to obtain a Windows installer ISO is with CrystalFetch on macOS, a free utility for legally obtaining the newest Windows builds from Microsoft.
 
 [ Download on the App Store](https://apps.apple.com/app/crystalfetch-iso-downloader/id6454431289){: .btn .btn-green }
 [Download from GitHub](https://github.com/TuringSoftware/CrystalFetch/releases/latest/download/CrystalFetch.dmg){: .btn .btn-green }
 
-By default, the latest release or release preview build for the host architecture will be selected. You can change the filter to include pre-release builds as well as server builds. You can collapse the current architecture to find builds for other architectures (i.e. for emulation).
+Alternatively, you can also download an older ISO directly from Microsoft (you may have to use Firefox or Chrome to download as Microsoft's website sometimes does not work properly with Safari):
+
+* [Download Windows 11 for Intel Macs](https://www.microsoft.com/en-us/software-download/windows11)
+* [Download Windows 11 for Apple Silicon Macs](https://www.microsoft.com/en-us/software-download/windows11arm64)
+
+Note that regardless of how you obtain the Windows installer, you must have a valid license from Microsoft to run Windows.
 
 ## Instructions
 
