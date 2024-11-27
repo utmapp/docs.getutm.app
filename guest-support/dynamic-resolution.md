@@ -5,12 +5,12 @@ parent: Guest Support
 ---
 {% include toc.md %}
 
-Dynamic resolution allows the virtual machine to change resolution to match the current window size (including full screen window). It it only supported on QEMU backend virtual machines and requires guest tools to be installed.
+Dynamic resolution allows the virtual machine to change resolution to match the current window size (including full screen window). It it supported on QEMU backend virtual machines when guest tools are installed and in Apple backend guests running macOS 14 or newer.
 
 ## Enabling Dynamic Resolution
 
 1. In the virtual machine configuration, make sure that ["Auto resolution"]({% link settings-qemu/devices/display.md %}#auto-resolution) is checked.
-2. Install the guest tools on [Linux]({% link guest-support/linux.md %}) or [Windows]({% link guest-support/windows.md %}).
+2. Install the guest tools on [Linux]({% link guest-support/linux.md %}) or [Windows]({% link guest-support/windows.md %}) if using QEMU backend.
 3. Reboot the virtual machine.
 
 **macOS**{: .label .label-green } When you resize the virtual machine window, it should automatically request to the guest agent to change the resolution to match that size.

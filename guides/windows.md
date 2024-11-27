@@ -91,3 +91,7 @@ If Windows 11 setup is stuck due to lack of network connection:
 ### SPICE tools did not install automatically
 
 See [this page]({% link guest-support/windows.md %}#windows-xp-and-higher) for more details.
+
+### Windows installer loads and then goes into a black screen
+
+Windows 11 24H2 has a compatibility issue with the graphics drivers that are provided by the UTM guest tools ISO. You can eject the guest ISO from the CD menu and reboot to access Windows installer. After the installation is complete, you can re-mount the guest tools from the CD menu and selecting "Install Windows Guest Tools". After you install the guest tools, you may see a black screen again. If this happens, you should reset the VM to allow the drivers to properly load at boot.

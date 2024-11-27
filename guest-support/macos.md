@@ -36,10 +36,15 @@ $ mount_virtiofs share [mount point]
 ### Network sharing
 Another way of sharing files between the host and guest (including support for macOS 12) is to use the network file sharing feature of macOS running on the host. You can do it from "System Preferences" under the "Sharing" category. Check out [Apple's user guide](https://support.apple.com/guide/mac-help/set-up-file-sharing-on-mac-mh17131/mac) for more details. Once a network share is set up, your macOS guest can connect to it just like any other Mac.
 
+## Clipboard Sharing
+{: .label .label-green }
+**macOS 15+**
+When both the guest and host are running macOS 15 or higher, clipboard sharing is supported. First, enable the feature in the VM's settings under Virtualization → Enable Clipboard Sharing. Then, after starting the VM, mount the guest tools by selecting "Install Guest Tools" from the CD button in the toolbar. Open the package installer from the mounted drive and after the installation is complete, macOS will prompt for you to allow "spice-vdagent" and "spice-vdagentd" to be opened. Make sure you agree to open in these prompts.
+
 ## Missing features
 The Apple Virtualization backend used to virtualize macOS does not support many UTM features. Below is a list of some unsupported features.
 
 * USB sharing
-* Clipboard sharing
-* Dynamic display resolution
-* Save states
+* Clipboard sharing (before macOS 15)
+* Dynamic display resolution (before macOS 14)
+* Save states (before macOS 14)
