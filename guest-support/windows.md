@@ -45,4 +45,4 @@ If [QEMU SPICE WebDAV directory sharing]({% link settings-qemu/sharing.md %}#spi
 
 If you do not see the network drive, run `C:\Program File\SPICE webdavd\map-drive.bat`.
 
-[1]: https://github.com/utmapp/qemu/releases/download/v7.0.0-utm/spice-guest-tools-0.164.4.iso
+[1]: https://getutm.app/downloads/utm-guest-tools-latest.iso
