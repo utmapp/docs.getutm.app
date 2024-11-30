@@ -43,6 +43,6 @@ You can manually download the guest tools ISO [here][1].
 ## SPICE WebDAV
 If [QEMU SPICE WebDAV directory sharing]({% link settings-qemu/sharing.md %}#spice-webdav) is enabled, you can access it from "My Computer" as a network drive.
 
-If you do not see the network drive, run `C:\Program File\SPICE webdavd\map-drive.bat`.
+If you do not see the network drive, run `C:\Program Files\SPICE webdavd\map-drive.bat`.
 
 [1]: https://getutm.app/downloads/utm-guest-tools-latest.iso
