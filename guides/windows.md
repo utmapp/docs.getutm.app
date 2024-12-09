@@ -88,7 +88,7 @@ Make sure you installed the SPICE guest tools, which includes the network driver
 If Windows 11 setup is stuck due to lack of network connection:
 
 1. Go to the language select screen (you may need to restart the setup if you are past this screen).
-2. Press **Shift + F10** to launch Command Prompt.
+2. Press **Shift + F10** Or **FN + Shift + F10** to launch Command Prompt.
 3. Type in `OOBE\BYPASSNRO` and press Enter.
 4. Your VM should reboot and at the setup screen you should see an option for "I don't have internet."
 5. Once Windows setup is completed, make sure to install the SPICE guest tools for network drivers.
