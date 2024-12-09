@@ -43,7 +43,7 @@ $ sudo reboot
 
 ### Cannot boot into installer
 
-If you start the VM and are stuck at the EFI screen (`BdsDxe: failed to load Boot0001` or `UEFI Interactive Shell`), try the following in order.
+#### If you start the VM and are stuck at the EFI screen (`BdsDxe: failed to load Boot0001` or `UEFI Interactive Shell`), try the following in order.
 
 1. Make sure you have the installer ISO selected. Click the disk icon on the toolbar and check that there is a menu option for `CD/DVD (ISO) Image (usb): ubuntu-xxx.iso`. If it says `CD/DVD (ISO) Image (usb): none`, then highlight that menu and choose `Change` and then select the ISO. If you don't have any selectable menu option, follow the guide again and make sure you have added a removable drive. Then restart the VM.
 2. Next, try to get into the EFI Shell. If you see `UEFI Interactive Shell` then you are already in the shell. Otherwise, restart the VM and quickly press the Esc key to enter the shell.
@@ -52,8 +52,22 @@ If you start the VM and are stuck at the EFI screen (`BdsDxe: failed to load Boo
 
 ### Networking is unavailable
 
-If the hardware enumeration order changes, your network settings may need to be updated.
+#### If the hardware enumeration order changes, your network settings may need to be updated.
 
 1. Run `ip link show` and look at the last adapter name. For example, it may be listed as `enp0s1`.
 2. Edit `/etc/netplan/00-installer-config.yaml` and copy your configuration for `enp0s8` (or whatever the old adapter was named) and paste it immediately after for `enp0s1` (or whatever the new adapter is named).
 3. Reboot and you should be able to use networking again.
+
+#### If the connection shows as "unmanaged" and network won't come up the renderer may not be defined in netplan
+
+1. Edit `/etc/netplan/00-installer-config.yaml` and ensure there is a key/value pair for renderer
+2. <pre>
+    # This is the network config written by 'subiquity'
+    network:
+      renderer: NetworkManager
+      ethernets:
+        enp0s1:
+          dhcp4: true
+      version: 2
+  </pre>
+3. Run `sudo netplan generate && sudo netplan apply` and networking should work now
