@@ -17,6 +17,15 @@ You can also download the latest stable version of UTM from GitHub.
 
 [Download from GitHub](https://github.com/utmapp/UTM/releases/latest/download/UTM.dmg){: .btn .btn-green }
 
+## Homebrew
+For command line lovers, you can install UTM with Homebrew which also uses the latest stable version from GitHub.
+
+[Download from Homebrew]([https://github.com/utmapp/UTM/releases/latest/download/UTM.dmg](https://formulae.brew.sh/cask/utm)){: .btn .btn-green }
+
+```
+brew install --cask utm
+```
+
 {: .note }
 UTM is and always will be completely free and open source. The Mac App Store version is identical to the GitHub version and there are no features left out. The only advantage of the Mac App Store version is that you can get automatic updates. Purchasing the App Store version directly funds the development of UTM and shows your support ♥.
 
