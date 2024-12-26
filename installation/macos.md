@@ -18,7 +18,7 @@ You can also download the latest stable version of UTM from GitHub.
 [Download from GitHub](https://github.com/utmapp/UTM/releases/latest/download/UTM.dmg){: .btn .btn-green }
 
 ## Homebrew
-For command line lovers, you can install UTM with Homebrew which also uses the latest stable version from GitHub.
+For command line users, you can install UTM with Homebrew which also uses the latest stable version from GitHub.
 
 [Download from Homebrew](https://formulae.brew.sh/cask/utm){: .btn .btn-green }
 
