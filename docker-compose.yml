@@ -1,0 +1,12 @@
+name: jekyll
+services:
+    minimal:
+        volumes:
+            - ./:/srv/jekyll
+        stdin_open: true
+        tty: true
+        image: jekyll/jekyll:latest
+        platform: linux/amd64
+        ports:
+         - 4000:4000
+        command: jekyll serve --livereload
