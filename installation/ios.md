@@ -83,5 +83,5 @@ UTM requires AppSync Unified which can be found on [Karen's Repo][8]. You need t
   [7]: cydia://url/https://cydia.saurik.com/api/share#?source=https://cydia.getutm.app/
   [8]: cydia://url/https://cydia.saurik.com/api/share#?source=https://cydia.akemi.ai/
   [9]: https://github.com/osy/Jitterbug
-  [10]: https://github.com/jkcoxson/JitStreamer
+  [10]: https://github.com/jkcoxson/JitStreamer-EB
   [11]: https://github.com/opa334/TrollStore
