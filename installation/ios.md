@@ -29,7 +29,9 @@ The last version of UTM that supports iOS 11-13 is [v3.2.4](https://github.com/u
 
 **If you are running iOS 14.2, 14.3**: UTM works with sideloading (non-jailbroken) if your device has an Apple A12 chip or newer. Otherwise, keep reading.
 
-**If you are running iOS 14.0, 14.1, 14.4, or higher**: UTM works if you are jailbroken or [semi-tethered with Jitterbug][9], AltJIT, or [Jitstreamer][10]. "Semi-tethered" means either tethered to a Mac/PC, to another iOS device with Wifi sharing, or to itself (one iOS device running both Jitterbug/AltJIT and UTM) through a on-device VPN profile.
+**If you are running iOS 14.0, 14.1, 14.4, or higher**: UTM works if you are jailbroken or [semi-tethered with Jitterbug][9], AltJIT, or [Jitstreamer][10]. "Semi-tethered" means either tethered to a Mac/PC, to another iOS device with Wifi sharing (wifi only, not cellular data), or to itself (one iOS device running both Jitterbug/AltJIT and UTM) through a on-device VPN profile.
+
+**If you are running iOS 17.0 or higher**: UTM due to Apple's limitations, you need to use JIT-Less instead of of normal JIT, so you can use AltJIT (macOS only, hackintosh also good) or [SideJITServer](https://github.com/nythepegasus/SideJITServer) (SideStore only)
 
 ### AltStore Repository
 
