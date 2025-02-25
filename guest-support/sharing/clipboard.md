@@ -8,7 +8,7 @@ grand_parent: Guest Support
 
 Clipboard sharing allows the guest and host to share clipboard contents. It is supported by the QEMU backend.
 
-**macOS 13+**{: .label .label-green } Clipboard sharing is now supported for Linux guests running on the Apple backend. There is still no support for macOS guests.
+**macOS 15+**{: .label .label-green } Clipboard sharing is now supported for Linux and macOS (15+) guests running on the Apple backend. 
 
 ## Enabling Clipboard Sharing
 
