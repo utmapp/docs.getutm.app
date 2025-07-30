@@ -20,3 +20,6 @@ This can be done [from the details view]({% link basics/basics.md %}) near the b
 
 ## Mounting on guest
 Windows guests can install [the guest tools]({% link guest-support/windows.md %}) to enable SPICE WebDAV sharing. Linux guests have [a variety of options]({% link guest-support/linux.md %}) for directory sharing.
+
+{: .note }
+**Windows 11** In Windows VMs, the registry key `FileSizeLimitInBytes` found at `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters` controls the file size ceiling for WebDAV. The default is 50MB (50,000,000 bytes; 2faf080 in hexadecimal). The maximum is 4GB (4,294,967,295 bytes; ffffffff in hexadecimal). Raise this ceiling as needed to avoid errors in accessing and transferring larger files. A reboot is required to cause the system to adopt the changes. Always back up your registry before making changes.
