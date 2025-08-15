@@ -60,11 +60,30 @@ deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy-updates universe
 and on Ubuntu:
 ```
 Types: deb
-URIs: http://archive.ubuntu.com/ubuntu/
+URIs: http://ports.ubuntu.com/ubuntu-ports/
 Suites: noble noble-updates noble-backports
 Components: main restricted universe multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-Architectures: arm64
+
+Types: deb
+URIs: https://security.ports.ubuntu.com/ubuntu-ports/
+Suites: noble-security
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+
+Types: deb
+URIs: http://us.archive.ubuntu.com/ubuntu/
+Suites: noble noble-updates noble-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+Architectures: amd64
+
+Types: deb
+URIs: http://security.ubuntu.com/ubuntu/
+Suites: noble-security
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+Architectures: amd64
 ```
 
 And lastly, refreshing the package manager:
