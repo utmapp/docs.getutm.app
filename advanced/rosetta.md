@@ -106,11 +106,7 @@ sudo snap refresh
 ```
 Snap is now installed and able to install both binaries targeting either ARM or x64 architectures. Snap will use ARM64 by default, unless AMD64 is specfied as follows:
 ```
-sudo snap install <snap-name> --architecture=amd64
-```
-You can swap the install architecuture of already installed `Arm64` programs with the refresh command:
-```
-sudo snap refresh <snap-name> --architecture=amd64
+UBUNTU_STORE_ARCH=amd64 snap download <snapname>
 ```
 To verify the architecture of installed snaps:
 ```
