@@ -49,7 +49,7 @@ The `magic` parameter describes the first 20 bytes of the ELF header for x86_64 
 ## Installing Shared Libraries
 In order to run x86_64 executables, you still need to install shared libraries for x86_64. The instructions vary for different distros but usually involve enabling "multiarch" or "multilib" support.
 
-For example in Debian based distros the package manager can be updated by duplicating the ARM line(s) in your `/etc/apt/sources.list` and adding `[arch=amd64]` before the url. For example on Ubuntu:
+For example in Debian based distros the package manager can be updated by duplicating the ARM line(s) in your `/etc/apt/sources.list` and adding `[arch=amd64]` before the url. For example on Debian:
 
 ```
 deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy main restricted
@@ -57,6 +57,16 @@ deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted
 deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy universe
 deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy-updates universe
 ```
+and on Ubuntu:
+```
+Types: deb
+URIs: http://ports.ubuntu.com/ubuntu-ports/
+Suites: noble noble-updates noble-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+Architectures: arm64
+```
+
 And lastly, refreshing the package manager:
 ```
 sudo dpkg --add-architecture amd64
