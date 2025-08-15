@@ -60,7 +60,7 @@ deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy-updates universe
 and on Ubuntu:
 ```
 Types: deb
-URIs: http://ports.ubuntu.com/ubuntu-ports/
+URIs: http://archive.ubuntu.com/ubuntu/
 Suites: noble noble-updates noble-backports
 Components: main restricted universe multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
