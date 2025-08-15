@@ -95,10 +95,9 @@ Now you are ready to install the amd64 install compilers
 ```
 sudo apt install libc6:amd64 libstdc++6:amd64
 ```
-Verify by checking if the output is amd64
+Check if the `dpkg` command is setup to use amd64
 ```
 dpkg --print-foreign-architectures
-ldd --version
 ```
 Now install `snapd` and refresh the Snap Store
 ```
@@ -135,8 +134,4 @@ If you need to force install a program, you should also confirm it is an `ELF 64
 sudo apt install p7zip-full:amd64
 file /usr/lib/p7zip/7z
 7z b
-```
-Also you can check if the `dpkg` command is setup to use amd64:
-```
-dpkg --print-foreign-architectures
 ```
