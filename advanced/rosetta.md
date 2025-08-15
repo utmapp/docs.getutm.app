@@ -61,12 +61,14 @@ URIs: http://ports.ubuntu.com/ubuntu-ports/
 Suites: noble noble-updates noble-backports
 Components: main restricted universe multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+Architectures: arm64
 
 Types: deb
 URIs: https://security.ports.ubuntu.com/ubuntu-ports/
 Suites: noble-security
 Components: main restricted universe multiverse
 Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+Architectures: arm64
 
 Types: deb
 URIs: http://us.archive.ubuntu.com/ubuntu/
@@ -87,14 +89,7 @@ Architectures: amd64
 > 
 > Running `sudo dpkg --add-architecture amd64` on Ubuntu assumes that the update
 > binary URLs are identical across architectures. **They are not** — Ubuntu’s
-> mirrors use architecture-specific paths. Adding `amd64` without proper
-> repository configuration can cause `apt update` to fail or pull packages from
-> the wrong source, potentially breaking your system.
-> 
-> If you must enable `amd64` on an ARM system, make sure to:
-> 1. Verify your `/etc/apt/sources.list` contains correct `deb [arch=...]` entries.
-> 2. Add architecture-specific repository lines for both `arm64` and `amd64`.
-> 3. Run `apt update` only after confirming that both architectures point to valid mirrors.
+> mirrors use architecture-specific paths. If this command breaks apt, make sure architecture-specific repository lines exist for both the `arm64` and `amd64` sources.
 
 
 ## Confirming Success
