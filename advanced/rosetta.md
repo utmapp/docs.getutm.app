@@ -83,11 +83,19 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 Architectures: amd64
 ```
 
-And lastly, refreshing the package manager:
-```
-sudo dpkg --add-architecture amd64
-sudo apt update
-```
+> **⚠️ WARNING: Multi-Arch Hazard on Ubuntu**
+> 
+> Running `sudo dpkg --add-architecture amd64` on Ubuntu assumes that the update
+> binary URLs are identical across architectures. **They are not** — Ubuntu’s
+> mirrors use architecture-specific paths. Adding `amd64` without proper
+> repository configuration can cause `apt update` to fail or pull packages from
+> the wrong source, potentially breaking your system.
+> 
+> If you must enable `amd64` on an ARM system, make sure to:
+> 1. Verify your `/etc/apt/sources.list` contains correct `deb [arch=...]` entries.
+> 2. Add architecture-specific repository lines for both `arm64` and `amd64`.
+> 3. Run `apt update` only after confirming that both architectures point to valid mirrors.
+
 
 ## Confirming Success
 To test if your system now has binaries avaliable via the package manager you can run the following command to check if both `arm64` and `amd64` are avaiable. For example the 7-zip program:
