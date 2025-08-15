@@ -48,3 +48,29 @@ The `magic` parameter describes the first 20 bytes of the ELF header for x86_64 
 
 ## Installing Shared Libraries
 In order to run x86_64 executables, you still need to install shared libraries for x86_64. The instructions vary for different distros but usually involve enabling "multiarch" or "multilib" support.
+
+For example in Debian based distros the package manager can be updated by duplicating the ARM line(s) in your `/etc/apt/sources.list` and adding `[arch=amd64]` before the url. For example on Ubuntu:
+
+```
+deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy main restricted
+deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted
+deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy universe
+deb [arch=amd64] http://archive.ubuntu.com/ubuntu/ jammy-updates universe
+```
+And lastly, refreshing the package manager:
+```
+sudo dpkg --add-architecture amd64
+sudo apt update
+```
+
+## Confirming Success
+To test if your system now has binaries avaliable via the package manager you can run the following command to check if both `arm64` and `amd64` are avaiable. For example the 7-zip program:
+```
+apt list p7zip-full
+```
+If you need to force install a program, you should also confirm it is an `ELF 64-bit LSB pie executable, x86-64` file.
+```
+sudo apt install p7zip-full:amd64
+file /usr/lib/p7zip/7z
+7z b
+```
