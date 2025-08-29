@@ -171,7 +171,7 @@ $ sudo mkdir [mount point]
 $ sudo mount -t virtiofs share [mount point]
 ```
 
-Where `[mount point]` is the desired destination path. For example: `/media/share`.
+Where `[mount point]` is the desired destination path. For example: `/media/myshare`.
 
 You can also modify `/etc/fstab` and add the following line to automatically mount the share on startup:
 
