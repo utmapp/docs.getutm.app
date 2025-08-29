@@ -114,7 +114,7 @@ You can apply the changes to `/etc/fstab` with the following commands (this will
 
 ```sh
 systemctl daemon-reload
-systemctl restart network-fs.target
+systemctl restart network-fs.target # use remote-fs.target if not found
 systemctl list-units --type=mount
 ```
 
