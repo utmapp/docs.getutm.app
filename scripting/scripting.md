@@ -9,10 +9,16 @@ has_children: true
 
 {% include toc.md %}
 
-UTM provides power users with access to an AppleScript bridge interface paired with a command line interface. Note that not all features are currently supported in the scripting interface and feedback is welcome on what should be added.
+UTM provides power users with access to Shortcuts intents and an AppleScript bridge interface paired with a command line interface. Note that not all features are currently supported in the automation interface and feedback is welcome on what should be added.
+
+## Shortcuts
+UTM provides basic actions to the Shortcuts app which you can use to build a workflow. Currently, there exists actions to:
+* Find a virtual machine by keywords and/or its status
+* Start/stop/pause/resume/restart a virtual machine
+* Send keystrokes and mouse clicks to a running virtual machine
 
 ## AppleScript
-Details on the verbs and nouns available in the scripting interface can be found [here]({% link scripting/reference.html %}) or in the AppleScript dictionary. To browse the dictionary:
+For more advanced automation, UTM provides an AppleScript interface. Details on the verbs and nouns available in the scripting interface can be found [here]({% link scripting/reference.html %}) or in the AppleScript dictionary. To browse the dictionary:
 
 1. Open "Script Editor" (found in Applications → Utilities)
 2. In the menu bar choose File → Open Dictionary... (or Shift+Cmd+O)

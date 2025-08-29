@@ -9,13 +9,15 @@ nav_order: 1
 
 {% include toc.md %}
 
-UTM works on all devices running iOS 11 or higher if jailbroken. UTM can also be run [semi-tethered][9] on non-jailbroken devices. UTM runs untethered on some non-jailbroken devices with limited compatibility depending on your iOS version and device processor. See the list below for more details.
+UTM works on all devices running iOS 14 or higher if jailbroken. UTM can also be run [semi-tethered][9] on non-jailbroken devices. UTM runs untethered on some non-jailbroken devices with limited compatibility depending on your iOS version and device processor. See the list below for more details.
 
 [Download from GitHub](https://github.com/utmapp/UTM/releases/latest){: .btn .btn-blue }
 
-UTM SE is a stripped down version of UTM which does not support JIT and uses a slower interpreter for emulation. It can be used to run older operating systems such as DOS or stripped down operating systems such as Alpine Linux. It does not require any jailbreak to use and is available on the App Store as well as alternative marketplaces where applicable.
+UTM SE is a stripped down version of UTM which does not support JIT and uses a slower interpreter for emulation. It can be used to run older operating systems such as DOS or stripped down operating systems such as Alpine Linux. It does not require any jailbreak to use and is available on the App Store as well as alternative marketplaces in supported locales. The latest beta can be found on TestFlight.
 
 [ Download on the App Store](https://apps.apple.com/us/app/utm-se-retro-pc-emulator/id1564628856){: .btn .btn-blue }
+
+[ Join the TestFlight](https://testflight.apple.com/join/scqwW9gJ){: .btn .btn-blue }
 
 ## Non-Jailbroken Devices
 

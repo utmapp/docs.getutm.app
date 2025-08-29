@@ -20,11 +20,11 @@ This page will guide you to installing Debian on your Apple Silicon Mac running 
 1. Open UTM and click the "+" button to open the VM creation wizard.
 2. Select "Virtualize".
 3. Select "Linux".
-4. Check "Use Apple Virtualization" and "Enable Rosetta (x86_64 Emulation)"
-5. Click "Browse" and select the Debian installer ISO from the link above. Press "Next" to continue.
-6. Pick the amount of RAM and CPU cores you wish to give access to the VM. Press "Next" to continue.
-7. Specify the maximum amount of drive space to allocate. Press "Next" to continue.
-8. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Next" to continue.
+4. Pick the amount of RAM and CPU cores you wish to give access to the VM. Press "Continue".
+5. Check "Use Apple Virtualization" and "Enable Rosetta (x86_64 Emulation)"
+6. Click "Browse" and select the Debian installer ISO from the link above. Press "Continue".
+7. Specify the maximum amount of drive space to allocate. Press "Continue".
+8. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Continue".
 9. Press "Save" to create the VM and press the Run button to start the VM.
 10. Select "Install" and follow through the setup wizard.
 

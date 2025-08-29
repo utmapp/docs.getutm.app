@@ -15,6 +15,9 @@ has_children: true
 * **macOS**{: .label .label-green } **Host Only** Similar to "shared network" except WAN traffic is blocked so the guest cannot access the Internet.
 * **macOS**{: .label .label-green } **Bridged** The host creates a layer 2 bridge with the specified interface. This is for advanced users.
 
+### Host Network
+When "Host Only" network mode is used, the VM will be placed on a network that is isolated from the host network and any other VM. You can also [create separate host networks]({% link preferences/macos.md %}#host-networks) that is shared amongst multiple VMs (including with other vmnet compatible software such as VMware Fusion). Note that when a host network is used, no DHCP will be provided to the VM and IP settings must be manually configured.
+
 ### **macOS**{: .label .label-green } Bridged Interface
 Only applicable for "bridged" network mode. Note that bridging with an Wifi interface may require additional configuration.
 

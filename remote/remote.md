@@ -8,9 +8,11 @@ nav_order: 10
 UTM Remote is a companion to UTM (for macOS) which allows you to connect to your virtual machines running on macOS from another device. It allows you to use UTM as a Virtual Desktop Infrastructure (VDI) and self-host a virtual machine for remote use.
 
 ## Getting UTM Remote
-The easiest way is for free through the App Store.
+You can download the latest stable version for free through the App Store and the latest beta version from TestFlight.
 
 [ Download on the App Store](https://apps.apple.com/us/app/utm-remote-virtual-machines/id6470773592){: .btn .btn-blue }
+
+[ Join the TestFlight](https://testflight.apple.com/join/mFlnyMv3){: .btn .btn-blue }
 
 ## Setup
 UTM Remote requires UTM for macOS to use. [Installation instruction can be found here]({% link installation/macos.md %}) and [server setup guide can be found here]({% link remote/server.md %}).
