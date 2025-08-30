@@ -49,75 +49,8 @@ The `magic` parameter describes the first 20 bytes of the ELF header for x86_64 
 ## Installing Shared Libraries
 In order to run x86_64 executables, you still need to install shared libraries for x86_64. The instructions vary for different distros but usually involve enabling "multiarch" or "multilib" support.
 
-For example for distros using `apt` the package manager can be updated by adding the archiectrure to your source list `/etc/apt/sources.list`. For example on Debian:
-
-```
-deb [ arch=arm64,amd64 ] http://deb.debian.org/debian/ bookworm main contrib non-free-firmware non-free
-```
-and on Ubuntu:
-```
-Types: deb
-URIs: http://ports.ubuntu.com/ubuntu-ports/
-Suites: noble noble-updates noble-backports
-Components: main restricted universe multiverse
-Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-Architectures: arm64
-
-Types: deb
-URIs: https://security.ports.ubuntu.com/ubuntu-ports/
-Suites: noble-security
-Components: main restricted universe multiverse
-Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-Architectures: arm64
-
-Types: deb
-URIs: http://us.archive.ubuntu.com/ubuntu/
-Suites: noble noble-updates noble-backports
-Components: main restricted universe multiverse
-Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-Architectures: amd64
-
-Types: deb
-URIs: http://security.ubuntu.com/ubuntu/
-Suites: noble-security
-Components: main restricted universe multiverse
-Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-Architectures: amd64
-```
-## Configuring the Snap Store
-To use the Snap Store you need to register multiple CPU architectures with the kernal, add the `qemu-user` userspace emulator, and confirm `binfmt` integration so the kernal can transparently hand `amd64` binaries to the rosetta emulator. 
-```
-sudo apt install qemu-user-static binfmt-support
-sudo dpkg --add-architecture amd64
-sudo apt update
-```
-Now you are ready to install the amd64 install compilers
-```
-sudo apt install libc6:amd64 libstdc++6:amd64
-```
-Check if the `dpkg` command is setup to use amd64
-```
-dpkg --print-foreign-architectures
-```
-Now install `snapd` and refresh the Snap Store
-```
-sudo systemctl restart snapd
-sudo snap refresh
-```
-Snap is now installed and able to install both binaries targeting either ARM or x64 architectures. Snap will use ARM64 by default, unless AMD64 is specfied as follows:
-```
-UBUNTU_STORE_ARCH=amd64 snap download <snapname>
-```
-To verify the architecture of installed snaps:
-```
-snap list --all
-```
-
-> **⚠️ WARNING: Multi-Arch Hazard on Ubuntu**
-> 
-> Running `sudo dpkg --add-architecture amd64` on Ubuntu assumes that the update
-> binary URLs are identical across architectures. **They are not** — Ubuntu’s mirrors use architecture-specific paths.
-> If this command breaks apt, make sure architecture-specific repository lines exist for both the `arm64` and `amd64` sources.
+- [Ubuntu]({% link guides/ubuntu.md %})
+- [Debian]({% link guides/debian.md %})
 
 ## Confirming Success
 
