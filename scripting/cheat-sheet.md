@@ -175,4 +175,18 @@ tell application "UTM"
 end tell
 ```
 
+## Input automation
+
+```applescript
+tell application "UTM"
+	set vm to virtual machine named "Ubuntu"
+	--- send 'hello' as a sequence of raw PC AT scan codes (make + break)
+	input scan code of vm codes {35, 163, 18, 146, 38, 166, 38, 166, 24, 152}
+	--- send 'HELLO' as a string of characters with shift modifier
+	input keystroke of vm text "hello" with modifiers shift
+	--- send a left mouse click at (50, 50) of the primary display
+	input mouse click of vm at {50, 50} with mouse button left
+end tell
+```
+
 {% endraw %}

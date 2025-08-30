@@ -30,10 +30,10 @@ Note that regardless of how you obtain the Windows installer, you must have a va
 2. Open UTM and click the "+" button to open the VM creation wizard.
 3. Select "Virtualize".
 4. Select "Windows".
-5. Make sure "Import VHDX Image" is *unchecked* and "Install Windows 10 or higher" is *checked*. Also make sure "Install drivers and SPICE tools" is *checked*. Press "Browse" and select the ISO you built in step 1.
-6. Pick the amount of RAM and CPU cores you wish to give access to the VM. Press "Next" to continue.
-7. Specify the maximum amount of drive space to allocate. Press "Next" to continue.
-8. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Next" to continue.
+5. Pick the amount of RAM and CPU cores you wish to give access to the VM. Press "Continue".
+6. Make "Install Windows 10 or higher" is *checked*. Also make sure "Install drivers and SPICE tools" is *checked*. Press "Browse" and select the ISO you built in step 1.
+7. Specify the maximum amount of drive space to allocate. Press "Continue".
+8. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Continue".
 9. Press "Save" to create the VM. Wait for the guest tools to finish downloading and press the Run button to start the VM.
 10. Press any key to start the Windows installer and follow the instructions on screen. If you have issues with the mouse, press the mouse capture button in the toolbar to send mouse input directly. Press Control+Option together to exit mouse capture mode. Sometimes, due to driver issues, you can enter and exit capture mode and the mouse cursor works normally again.
 
@@ -64,7 +64,7 @@ On newer versions of UTM, Secure Boot and TPM should be enabled automatically. Y
 
 1. Press **Shift+F10** to open Command Prompt and type in `regedit.exe` to launch Registry Editor.
 2. Navigate to **HKEY_LOCAL_MACHINE\SYSTEM\Setup**
-3. Right click on the **Setup** key on the left size and choose New -> Key.
+3. Right click on the **Setup** key on the left side and choose New -> Key.
 4. Create a key named `LabConfig`
 5. Select the **LabConfig** key.
 6. Create two new values: Choose New -> DWORD (32-bit) and create `BypassTPMCheck` and `BypassSecureBootCheck`. Set both values to 1.
@@ -92,6 +92,8 @@ If Windows 11 setup is stuck due to lack of network connection:
 3. Type in `OOBE\BYPASSNRO` and press Enter.
 4. Your VM should reboot and at the setup screen you should see an option for "I don't have internet."
 5. Once Windows setup is completed, make sure to install the SPICE guest tools for network drivers.
+
+On newer versions Microsoft has started blocking `OOBE\BYPASSNRO` so instead you need to launch Command Prompt (**Shift + F10**) and type in `start ms-cxh:localonly`. Afterwards, you can create a local account and continue setup.
 
 ### SPICE tools did not install automatically
 

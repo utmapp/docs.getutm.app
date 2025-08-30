@@ -26,5 +26,5 @@ The suspend feature will not work if any device that is in use does not support 
 7. When one or more [removable drives]({% link settings-qemu/drive/drive.md %}) are configured, you can change the mounted image in this menu. **iOS**{: .label .label-blue } You can also change the [shared directory]({% link settings-qemu/sharing.md %}) if using WebDAV. **macOS**{: .label .label-green } You can also download and mount the [Windows guest tools]({% link guest-support/windows.md %}) in this menu. Apple virtualization backend does not support this option.
 8. **macOS**{: .label .label-green } The WebDAV [shared directory]({% link settings-qemu/sharing.md %}) can be selected and changed in this menu. Apple virtualization backend does not support this option.
 9. Switch between [multiple displays]({% link advanced/multiple-displays.md %}) in this menu.
-10. **iOS**{: .label .label-blue } Show or hide the on screen keyboard.
+10. **iOS**{: .label .label-blue } Show or hide the on screen keyboard. You can also Force Touch this button to send a keyboard shortcut.
 11. **iOS**{: .label .label-blue } Show or hide the other toolbar buttons. When the toolbar is hidden, this button will disappear when no touch event is detected for a long period of time. Tap the screen to reveal the button.

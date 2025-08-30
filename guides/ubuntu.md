@@ -18,12 +18,13 @@ parent: Guides
 1. Open UTM and click the "+" button to open the VM creation wizard.
 2. Select "Virtualize".
 3. Select "Linux".
-4. Click "Browse" and select the Ubuntu Server ISO downloaded from the link above. Press "Continue" to continue.
-5. Pick the amount of RAM and CPU cores you wish to give access to the VM. Press "Continue" to continue.
+4. Pick the amount of RAM and CPU cores you wish to give access to the VM. Press "Continue" to continue.
+5. Click "Browse" and select the Ubuntu Server ISO downloaded from the link above. Press "Continue" to continue.
 6. Specify the maximum amount of drive space to allocate. Press "Continue" to continue.
-6. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Continue" to continue.
+7. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Continue" to continue.
 8. Press "Save" to create the VM and press the Run button to start the VM.
-9. Go through the Ubuntu installer. If the reboot fails, you can manually quit the VM, unmount the installer ISO, and start the VM again to boot into your new installation.
+9. Go through the Ubuntu installer. At the end, you'll have the option to "Reboot Now," but after selecting that option and rebooting, the reboot will fail. (It will hang at a black screen with a blinking cursor.) This is expected!
+10. Manually quit the VM, unmount the installer ISO, and start the VM again to boot into your new installation.
 
 ## Installing Ubuntu Desktop
 
@@ -57,3 +58,18 @@ If the hardware enumeration order changes, your network settings may need to be 
 1. Run `ip link show` and look at the last adapter name. For example, it may be listed as `enp0s1`.
 2. Edit `/etc/netplan/00-installer-config.yaml` and copy your configuration for `enp0s8` (or whatever the old adapter was named) and paste it immediately after for `enp0s1` (or whatever the new adapter is named).
 3. Reboot and you should be able to use networking again.
+
+### Black screen during boot
+On ARM64 it has been reported that doing this may enable two wait services: NetworkManager-wait-online.service and systemd-networkd-wait-online.service that causes a black screen at boot.
+To verify the fix is needed one can run:
+
+```bash
+systemctl is-enabled NetworkManager-wait-online.service systemd-networkd-wait-online.service
+```
+
+If you see two lines showing 'enabled' instead of one, the one that should be disabled can be done like:
+```bash
+systemctl disable systemd-networkd.service
+```
+
+You can create a serial device in the VM settings to access the command line and run the commands if nothing shows up on screen.
