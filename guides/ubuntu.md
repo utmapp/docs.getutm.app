@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ubuntu 22.04
+title: Ubuntu
 parent: Guides
 ---
 {: .label .label-green }
@@ -51,7 +51,7 @@ Then, follow [this guide]({% link advanced/rosetta.md %}) to install Rosetta.
 
 ## Installing x86_64 Multiarch
 For Rosetta to work, you will have to enable x86_64 packages.
-For distros using the package manager `apt`, can be updated by adding the archiectrure to your source list `/etc/apt/sources.list.d/` using the `deb822` format. For example on Ubuntu:
+For Ubuntu versions from 24.04 onwards using the package manager `apt`, can be updated by adding the archiectrure to your source list `/etc/apt/sources.list.d/` using the `deb822` format. For example on Ubuntu:
 
 ```
 Types: deb
