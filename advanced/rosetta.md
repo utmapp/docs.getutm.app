@@ -56,6 +56,7 @@ In order to run x86_64 executables, you still need to install shared libraries f
 
 To test if your system now has binaries avaliable via the package manager you can run the following command to check if both `arm64` and `amd64` are avaiable. For example the 7-zip program:
 ```
+sudo apt update
 apt list p7zip-full
 ```
 If you need to force install a program, you should also confirm it is an `ELF 64-bit LSB pie executable, x86-64` file.
@@ -64,3 +65,13 @@ sudo apt install p7zip-full:amd64
 file /usr/lib/p7zip/7z
 7z b
 ```
+
+## Troubleshooting
+
+Sometimes dependencies might fail to install with unconfigured changes. To troubleshoot this issue:
+```
+sudo apt -f install -y
+```
+However packages might still fail to install due to not being able to use translation or not allowed to compile through Rossetta. 
+
+One known limitation remains with **Snap Packages** due to each package containing all their dependencies and not being able to make use of the translation.
