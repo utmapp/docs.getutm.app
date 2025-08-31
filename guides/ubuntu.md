@@ -23,8 +23,8 @@ parent: Guides
 6. Specify the maximum amount of drive space to allocate. Press "Continue" to continue.
 7. If you have a directory you want to mount in the VM, you can select it here. Alternatively, you can skip this and select the directory later from the VM window's toolbar. The shared directory will be available after installing SPICE tools (see below). Press "Continue" to continue.
 8. Press "Save" to create the VM and press the Run button to start the VM.
-9. Go through the Ubuntu installer. At the end, you'll have the option to "Reboot Now," but after selecting that option and rebooting, the reboot will fail. (It will hang at a black screen with a blinking cursor.) This is expected!
-10. Manually quit the VM, unmount the installer ISO, and start the VM again to boot into your new installation.
+9. Go through the Ubuntu installer. At the end, you'll have the option to "Reboot Now," but after selecting that option and rebooting, the reboot may fail. (It will hang at a black screen with a blinking cursor.) This is expected!
+10. If the VM did not restart automatically, manually quit the VM, unmount the installer ISO, and start the VM again to boot into your new installation.
 
 ## Installing Ubuntu Desktop
 
@@ -59,7 +59,7 @@ If the hardware enumeration order changes, your network settings may need to be 
 2. Edit `/etc/netplan/00-installer-config.yaml` and copy your configuration for `enp0s8` (or whatever the old adapter was named) and paste it immediately after for `enp0s1` (or whatever the new adapter is named).
 3. Reboot and you should be able to use networking again.
 
-### Black screen during boot
+### Black screen or stuck during boot for a long period
 On ARM64 it has been reported that doing this may enable two wait services: NetworkManager-wait-online.service and systemd-networkd-wait-online.service that causes a black screen at boot.
 To verify the fix is needed one can run:
 
