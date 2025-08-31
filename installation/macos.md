@@ -12,8 +12,8 @@ The easiest way to install UTM is from the Mac App Store.
 
 [ Download on the App Store](https://apps.apple.com/us/app/utm-virtual-machines/id1538878817){: .btn .btn-green }
 
-## TestFlight
-When a new beta is available, it can be found on TestFlight.
+### Beta
+Beta releases are less stable but allows you to test new features before they come out.
 
 [ Join the TestFlight](https://testflight.apple.com/join/Cg7UTrme){: .btn .btn-green }
 
