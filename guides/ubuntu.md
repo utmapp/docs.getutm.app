@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Ubuntu 22.04
+title: Ubuntu
 parent: Guides
 ---
 {: .label .label-green }
@@ -39,6 +39,55 @@ $ sudo reboot
 ## Enable clipboard and directory sharing
 
 [Follow the instructions in this page.]({% link guest-support/linux.md %})
+
+## Installing Rosetta
+First install `binfmt-support`.
+
+```
+$ sudo apt install binfmt-support
+```
+
+Then, follow [this guide]({% link advanced/rosetta.md %}) to install Rosetta.
+
+## Installing x86_64 Multiarch
+For Rosetta to work, you will have to enable x86_64 packages.
+For Ubuntu versions from 24.04 onwards using the package manager `apt`, can be updated by adding the archiectrure to your source list `/etc/apt/sources.list.d/` using the `deb822` format. For example on Ubuntu:
+
+```
+Types: deb
+URIs: http://ports.ubuntu.com/ubuntu-ports/
+Suites: noble noble-updates noble-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+Architectures: arm64
+
+Types: deb
+URIs: https://security.ports.ubuntu.com/ubuntu-ports/
+Suites: noble-security
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+Architectures: arm64
+
+Types: deb
+URIs: http://us.archive.ubuntu.com/ubuntu/
+Suites: noble noble-updates noble-backports
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+Architectures: amd64
+
+Types: deb
+URIs: http://security.ubuntu.com/ubuntu/
+Suites: noble-security
+Components: main restricted universe multiverse
+Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+Architectures: amd64
+```
+
+> **⚠️ WARNING: Multi-Arch Hazard on Ubuntu**
+> 
+> Running `sudo dpkg --add-architecture amd64` on Ubuntu assumes that the update
+> binary URLs are identical across architectures. **They are not** — Ubuntu’s mirrors use architecture-specific paths.
+> If this command breaks apt, make sure architecture-specific repository lines exist for both the `arm64` and `amd64` sources.
 
 ## Troubleshooting
 

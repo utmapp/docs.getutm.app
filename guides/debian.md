@@ -63,11 +63,18 @@ $ sudo apt install binfmt-support
 Then, follow [this guide]({% link advanced/rosetta.md %}) to install Rosetta.
 
 ## Installing x86_64 Multiarch
-For Rosetta to work, you will have to enable x86_64 packages.
+For Rosetta to work, you will have to enable x86_64 packages, this can be done in one of two ways: using `dpkg`, or manually.
 
+### Via `dpkg`:
 ```
 $ sudo dpkg --add-architecture amd64
 $ sudo apt update
+```
+### Manually
+For example for distros using `apt` the package manager can be updated by adding the archiectrure to your source list `/etc/apt/sources.list`. For example on Debian:
+
+```
+deb [ arch=arm64,amd64 ] http://deb.debian.org/debian/ bookworm main contrib non-free-firmware non-free
 ```
 
 You can now install and run any x86_64 package in the Debian repository with `sudo apt install packagename:amd64`.
