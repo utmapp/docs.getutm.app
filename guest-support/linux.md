@@ -162,7 +162,7 @@ _Note_: This will not change the permissions on your host system, but it will ad
 When using Apple Virtualization backend, [directory sharing]({% link settings-apple/sharing.md %}) is enabled through VirtioFS.
 
 {: .note }
-VirtioFS is NOT the same as [VirtFS](#virtfs) which is used by the QEMU backend for directory sharing.
+VirtioFS is NOT the same as [VirtFS](#virtfs) which is used by the QEMU backend for directory sharing. The name for mounting the shared directory is always `share` — it’s not the same as the folder name you chose when configuring the VM in UTM.
 
 After making sure your Linux installation [supports VirtioFS](#drivers), you can mount the share with the following command:
 
