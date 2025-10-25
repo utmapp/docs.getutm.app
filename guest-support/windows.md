@@ -29,8 +29,9 @@ If you are running an older version of Windows or if you have already completed 
 {: .label .label-green }
 **macOS**
 1. Start the virtual machine.
-2. [On the toolbar click the CD icon]({% link basics/controls.md %}) and select "Install Windows Guest Tools..."
-3. Wait for the tools to finish downloading and it should be automatically mounted on the last removable drive.
+2. If there is already an image mounted in CD drive, usually the Windows installation image, eject it.
+3. [On the toolbar click the CD icon]({% link basics/controls.md %}) and select "Install Windows Guest Tools..."
+4. Wait for the tools to finish downloading and it should be automatically mounted on the last removable drive. 
 
 {: style="counter-reset:none" }
 4. Once Windows starts up and you are logged in, open "My Computer" and find the CD drive labeled "UTM".
