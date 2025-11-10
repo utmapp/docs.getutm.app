@@ -37,6 +37,12 @@ $ sudo apt install spice-vdagent
 $ sudo yum install spice-vdagent
 ```
 
+### openSUSE
+
+```
+$ sudo zypper install spice-vdagent
+```
+
 {: .note }
 These systems will typically already have SPICE agent installed.
 
@@ -59,6 +65,12 @@ $ sudo apt install qemu-guest-agent
 
 ```
 $ sudo yum install qemu-guest-agent
+```
+
+### openSUSE
+
+```
+$ sudo zypper install qemu-guest-agent
 ```
 
 ### ArchLinux
@@ -84,6 +96,12 @@ $ sudo apt install spice-webdavd
 
 ```
 $ sudo yum install spice-webdavd
+```
+
+### openSUSE
+
+```
+$ sudo zypper install spice-webdavd
 ```
 
 ### ArchLinux
