@@ -17,6 +17,11 @@ If the guest tools ISO is mounted on a second CD drive, then it can be installed
 
 Once the wizard completes, the Windows Guest Tools will download automatically and it will be mounted to the newly created virtual machine. Wait until the download completes and start the virtual machine. After finishing the installation, all drivers and the guest tools will be installed.
 
+If Windows Guest Tools aren't automatically installed, you can manually trigger an install once your Windows environment has been configured.
+1. Ensure the Guest Tools drive has been mounted by clicking "Install Windows Guest Tools..." in the "Drive image options" in the top-right of the instance.
+2. Open File Explorer and navigate to D: Drive ("UTM Guest Tools").
+3. Double-click "utm-guest-tools-x.x.x.ext=e" in the drive directory and follow the prompts.
+
 ### Windows XP and higher
 If you are running an older version of Windows or if you have already completed Windows Setup, you can install the guest tools manually.
 
