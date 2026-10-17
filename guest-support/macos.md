@@ -48,9 +48,10 @@ Another way of sharing files between the host and guest (including support for m
 When both the guest and host are running macOS 15 or higher, clipboard sharing is supported. First, enable the feature in the VM's settings under Virtualization → Enable Clipboard Sharing. Then, after starting the VM, mount the guest tools by selecting "Install Guest Tools" from the CD button in the toolbar. Open the package installer from the mounted drive and after the installation is complete, macOS will prompt for you to allow "spice-vdagent" and "spice-vdagentd" to be opened. Make sure you agree to open in these prompts.
 
 ## Missing features
-The Apple Virtualization backend used to virtualize macOS does not support many UTM features. Below is a list of some unsupported features.
+The Apple Virtualization backend used to virtualize macOS does not support many UTM features in older versions of macOS. Below is a list of some unsupported features.
 
-* USB sharing
+* [USB sharing]({% link guest-support/sharing/usb.md %}) (before macOS 27)
 * Clipboard sharing (before macOS 15)
 * Dynamic display resolution (before macOS 14)
 * Save states (before macOS 14)
+* [Snapshots]({% link advanced/snapshots.md %}) and [disposable mode]({% link advanced/disposable.md %}) (before macOS 27)

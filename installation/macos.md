@@ -7,6 +7,9 @@ nav_order: 2
 {: .label .label-green }
 **macOS**
 
+{: .note }
+The last version of UTM that supports macOS 11 is [v4.7.5](https://github.com/utmapp/UTM/releases/tag/v4.7.5).
+
 ## Mac App Store
 The easiest way to install UTM is from the Mac App Store.
 

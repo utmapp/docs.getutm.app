@@ -45,4 +45,45 @@ If you installed UTM to another directory, the symbolic link will not work prope
 $ echo "/path/to/UTM.app/Contents/MacOS" | sudo tee /etc/paths.d/10-utm
 ```
 
-Run the tool without any arguments to see the help documentation and a list of available commands.
+Run the tool without any arguments to see the help documentation and a list of available commands. Run `utmctl help <command>` to see the options for a specific command. Virtual machines are identified by either their UUID or their complete name.
+
+| Command | Description |
+|-|-|
+| `version` | Display the version number of UTM. |
+| `list` | List all registered virtual machines. |
+| `status` | Query the status of a virtual machine. |
+| `start` | Start a virtual machine or resume a suspended virtual machine. Use `--disposable` to run without saving changes and `--recovery` to boot a macOS guest in recovery mode. |
+| `suspend` | Suspend a running virtual machine to memory. |
+| `stop` | Shut down a running virtual machine. |
+| `attach` | Redirect the serial input/output to this terminal. |
+| `file pull`, `file push` | Copy a file from or to the guest (requires the guest agent). |
+| `exec` | Execute an application on the guest (requires the guest agent). |
+| `ip-address` | List the IP addresses of the guest. |
+| `clone` | Clone an existing virtual machine. |
+| `delete` | Delete a virtual machine (there is no confirmation). |
+| `discard-state` | Discard the saved state of a suspended virtual machine so that it starts up normally. |
+| `usb list`, `usb connect`, `usb disconnect` | List USB devices and connect or disconnect them from a virtual machine. Devices are identified by a `VID:PID` pair or by the location shown in `usb list`. |
+| `snapshot list`, `create`, `restore`, `overwrite`, `rename`, `delete`, `scan` | Manage the [snapshots]({% link advanced/snapshots.md %}) of a virtual machine. Snapshots are identified with `--snapshot` by either their name or their identifier. |
+
+### Examples
+
+```
+$ utmctl snapshot create "Ubuntu" --name "Before update"
+$ utmctl snapshot list "Ubuntu" --json
+$ utmctl snapshot restore "Ubuntu" --snapshot "Before update"
+$ utmctl usb connect "Ubuntu" 05AC:12A8
+```
+
+### **macOS 27+**{: .label .label-green } Setting up a macOS guest
+When starting a newly installed macOS guest for the first time, `utmctl start` can create the user account without any interaction. This requires macOS 27 or later on both the host and the guest and only works on the first start after macOS is installed.
+
+```
+$ utmctl start "macOS" --provision-username user --provision-password-stdin --provision-auto-login --provision-ssh
+```
+
+The options are:
+* `--provision-username` The short name of the account to create.
+* `--provision-full-name` The full name of the account (defaults to the username).
+* `--provision-password` or `--provision-password-stdin` The password of the account. Other processes can see a password passed on the command line so reading it from standard input is recommended.
+* `--provision-auto-login` Log in to the account automatically when the guest starts up.
+* `--provision-ssh` Turn on Remote Login (SSH) in the guest.

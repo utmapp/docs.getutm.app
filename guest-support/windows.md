@@ -37,6 +37,30 @@ If you are running an older version of Windows or if you have already completed 
 5. Launch `spice-guest-tools-xxx.exe` where `xxx` is the version number.
 6. Follow the setup wizard to install the guest tools.
 
+## DirectX Graphics
+**WIP**{: .label .label-yellow }
+
+Windows 11 guests running in the QEMU backend can use accelerated DirectX graphics with an experimental 3D graphics driver included in the guest tools. Game compatibility is currently limited and the driver may cause instability in the guest.
+
+### Requirements
+* **macOS 13+**{: .label .label-green } or **iOS 16+**{: .label .label-blue }
+* A GPU accelerated [display card]({% link settings-qemu/devices/display.md %}#emulated-display-card) (one ending in `-gl`). The new VM wizard selects one by default for Windows.
+* The "Renderer Backend" in [preferences]({% link preferences/preferences.md %}) must be "Default" or "ANGLE (Metal)" and the "DirectX Driver" must not be "Disabled". The Apple Core OpenGL backend does not support DirectX.
+
+### Installation
+We recommend installing the 3D graphics driver on a fresh install of Windows. During the installation of the guest tools, you will be prompted to select the experimental graphics driver.
+
+{: .warning }
+If Windows is already running the older display only driver, you must first run the uninstall script found on the guest tools ISO before installing the experimental graphics driver.
+
+### DirectX Driver
+The host side of DirectX rendering can use one of two drivers which can be selected in the [preferences]({% link preferences/macos.md %}#directx-driver):
+
+* **DXMT** supports DirectX 11. This is the only driver available on iOS.
+* **macOS 14+**{: .label .label-green } **D3DMetal** supports DirectX 12 (when available). On Apple Silicon, D3DMetal requires Rosetta to be installed.
+
+By default, D3DMetal is used when it is available. If Rosetta is not installed on an Apple Silicon Mac, UTM falls back to DXMT.
+
 ## Download
 You can manually download the guest tools ISO [here][1].
 

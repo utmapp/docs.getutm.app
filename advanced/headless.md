@@ -14,4 +14,4 @@ You can control headless VMs through the UTM interface or with the [scripting in
 
 {: .note }
 > **macOS 13+**{: .label .label-green }
-> You can also [disable the dock icon]({% link preferences/macos.md %}#macos-13-show-menu-bar-icon).
+> You can also [disable the dock icon]({% link preferences/macos.md %}#macos-13-show-dock-icon).

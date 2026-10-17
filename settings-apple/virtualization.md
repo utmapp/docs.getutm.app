@@ -9,23 +9,32 @@ parent: Settings (Apple)
 {% include toc.md %}
 
 ## Balloon Device
-The balloon device allows the guest operating system (with supported drivers) to more intelligently request RAM from the host. This is highly recommended.
+Only available for Linux guests. The balloon device allows the guest operating system (with supported drivers) to more intelligently request RAM from the host. This is highly recommended.
 
 ## Entropy Device
 The entropy device is used by supported guest operating systems for cryptographic tasks.
 
-## **macOS 12+**{: .label .label-green } Sound
-Sound support for macOS or **macOS 13+**{: .label .label-green } Linux booting from UEFI.
+## Sound
+Sound support for macOS or **macOS 13+**{: .label .label-green } Linux booting from UEFI. Input (microphone) and output (speakers) can be enabled separately.
 
-## **macOS 12+**{: .label .label-green } Keyboard
+* **Disabled** No sound device.
+* **Input Only** Only the host microphone is passed to the guest.
+* **Output Only** Only guest audio is played on the host. Since the microphone is not used, Bluetooth headphones will not switch to the lower quality headset mode.
+* **Input and Output** Both the microphone and speakers are available to the guest.
+
+## Keyboard
 Keyboard support for macOS or **macOS 13+**{: .label .label-green } Linux booting from UEFI.
 
-## **macOS 12+**{: .label .label-green } Pointer
+* **Disabled** No keyboard device.
+* **Generic USB** A generic USB keyboard.
+* **Mac Keyboard (macOS 14+)** Emulates a Mac keyboard for macOS guests (requires Sonoma or higher host and guest). On other guests, a generic USB keyboard is used.
+
+## Pointer
 Pointer support for macOS or **macOS 13+**{: .label .label-green } Linux booting from UEFI.
 
-## **macOS 13+**{: .label .label-green } Trackpad
-
-Emulates a trackpad for macOS guests. Requires Ventura or higher guest. This allows support for trackpad gestures.
+* **Disabled** No pointing device.
+* **Generic Mouse** A generic USB pointing device.
+* **Mac Trackpad (macOS 13+)** Emulates a trackpad for macOS guests (requires Ventura or higher host and guest). This allows support for trackpad gestures. On other guests, a generic mouse is used.
 
 ## **macOS 13+**{: .label .label-green } Rosetta
 See [Rosetta]({% link advanced/rosetta.md %}) for more details.

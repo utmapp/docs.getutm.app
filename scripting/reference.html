@@ -46,6 +46,12 @@ parent: Scripting
           </div>
 </div>
         
+        <div class="entry" id="UTM-Suite.operating-system">
+<p class="entry"><span class="name">operating system</span>&ensp;<span class="annot">enum</span> : <span class="description">Guest operating system for an Apple virtual machine.</span></p>
+            <div class="entry"><p class="entry"><span class="name">linux</span> : <span class="description">Linux guest.</span></p></div>
+            <div class="entry"><p class="entry"><span class="name">macOS</span> : <span class="description">macOS guest (Apple silicon only).</span></p></div>
+        </div>
+
         <div class="entry" id="UTM-Suite.backend">
 <p class="entry"><span class="name">backend</span>&ensp;<span class="annot">enum</span> : <span class="description">Backend type.</span></p>
             <div class="entry"><p class="entry"><span class="name">apple</span> : <span class="description">Apple Virtualization.framework backend.</span></p></div>
@@ -90,9 +96,46 @@ parent: Scripting
 <p class="entry">[<span class="name">recovery</span> boolean] : <span class="description">When true, start the VM in recovery mode. Default value is false.</span></p>
             
           </div>
+<div class="entry">
+<p class="entry">[<span class="name">provisioning</span> <a href="#UTM-Suite.guest-provisioning">guest provisioning</a>] : <span class="description">Set up a macOS guest without user interaction. Only applies to the first start after macOS is installed and is never saved. Requires the Apple backend, macOS 27 or later, and a guest with macOS 27 or later.</span></p>
+            
+          </div>
 </div>
 </div>
         
+        <div class="entry" id="UTM-Suite.guest-provisioning">
+<p class="entry"><span class="name">guest provisioning</span>&ensp;<span class="annot">n</span> : <span class="description">Account to create when setting up a macOS guest.</span></p>
+<p class="label">Properties</p>
+<div class="entry" id="UTM-Suite.guest-provisioning.full-name"><p class="entry"><span class="name">full name</span> <span class="type">(text)</span> : <span class="description">Full name of the account. Defaults to the username.</span></p></div>
+<div class="entry" id="UTM-Suite.guest-provisioning.username"><p class="entry"><span class="name">username</span> <span class="type">(text)</span> : <span class="description">Short name of the account.</span></p></div>
+<div class="entry" id="UTM-Suite.guest-provisioning.password"><p class="entry"><span class="name">password</span> <span class="type">(text)</span> : <span class="description">Password of the account.</span></p></div>
+<div class="entry" id="UTM-Suite.guest-provisioning.automatic-login"><p class="entry"><span class="name">automatic login</span> <span class="type">(boolean)</span> : <span class="description">Log in to the account automatically when the guest starts up. Default value is false.</span></p></div>
+<div class="entry" id="UTM-Suite.guest-provisioning.remote-login"><p class="entry"><span class="name">remote login</span> <span class="type">(boolean)</span> : <span class="description">Turn on Remote Login (SSH) in the guest. Default value is false.</span></p></div>
+</div>
+        
+        <div class="entry" id="UTM-Suite.install">
+<p class="entry"><span class="name">install</span>&ensp;<span class="annot">v</span> : <span class="description">Install macOS on a stopped Apple virtual machine from its IPSW recovery image. All data on the primary drive will be erased, there is no confirmation! Returns once the installation starts, use query install to follow its progress.</span></p>
+<div class="entry verb-summary"><p class="entry"><span class="name">install</span> <span><a href="#UTM-Suite.virtual-machine">virtual machine</a> : <span class="description">Virtual machine to install macOS on.</span></span></p></div>
+</div>
+        
+        <div class="entry" id="UTM-Suite.install-progress">
+<p class="entry"><span class="name">install progress</span>&ensp;<span class="annot">n</span> : <span class="description">Progress of a macOS installation.</span></p>
+<p class="label">Properties</p>
+<div class="entry" id="UTM-Suite.install-progress.installing">
+<p class="entry"><span class="name">installing</span> <span class="type">(boolean, r/o)</span> : <span class="description">If true, the installation has not finished yet.</span></p>
+            
+          </div>
+<div class="entry" id="UTM-Suite.install-progress.progress"><p class="entry"><span class="name">progress</span> <span class="type">(real, r/o)</span> : <span class="description">Fraction of the installation that is completed, from 0.0 to 1.0.</span></p></div>
+</div>
+        
+        <div class="entry" id="UTM-Suite.query-install">
+<p class="entry"><span class="name">query install</span>&ensp;<span class="annot">v</span> : <span class="description">Query the progress of the last installation started with install. Raises an error if the installation failed.</span></p>
+<div class="entry verb-summary">
+<p class="entry"><span class="name">query install</span> <span><a href="#UTM-Suite.virtual-machine">virtual machine</a> : <span class="description">Virtual machine to query.</span></span></p>
+<div class="entry"><p class="entry">&rarr; <a href="#UTM-Suite.install-progress">install progress</a> : <span class="description">Progress of the installation.</span></p></div>
+</div>
+</div>
+
         <div class="entry" id="UTM-Suite.suspend">
 <p class="entry"><span class="name">suspend</span>&ensp;<span class="annot">v</span> : <span class="description">Suspend a running virtual machine to memory.</span></p>
 <div class="entry verb-summary">
@@ -115,6 +158,43 @@ parent: Scripting
 </div>
 </div>
         
+        <div class="entry" id="UTM-Suite.create-snapshot">
+<p class="entry"><span class="name">create snapshot</span>&ensp;<span class="annot">v</span> : <span class="description">Save the current state of a virtual machine as a new snapshot. A running QEMU virtual machine is saved along with its running state, otherwise only the disks are.</span></p>
+<div class="entry verb-summary">
+<p class="entry"><span class="name">create snapshot</span> <span><a href="#UTM-Suite.virtual-machine">virtual machine</a> : <span class="description">Virtual machine to snapshot.</span></span></p>
+<div class="entry">
+<p class="entry">[<span class="name">named</span> text] : <span class="description">Name for the new snapshot. A name already in use gets a number appended. If omitted, a name is generated.</span></p>
+            
+          </div>
+<div class="entry"><p class="entry">&rarr; <a href="#UTM-Suite.snapshot">snapshot</a> : <span class="description">The snapshot that was created.</span></p></div>
+</div>
+</div>
+
+        <div class="entry" id="UTM-Suite.restore">
+<p class="entry"><span class="name">restore</span>&ensp;<span class="annot">v</span> : <span class="description">Replace the current state of a virtual machine with a snapshot. A virtual machine that is not running resumes from it the next time it is started.</span></p>
+<div class="entry verb-summary"><p class="entry"><span class="name">restore</span> <span><a href="#UTM-Suite.snapshot">snapshot</a> : <span class="description">Snapshot to restore.</span></span></p></div>
+</div>
+
+        <div class="entry" id="UTM-Suite.delete-snapshot">
+<p class="entry"><span class="name">delete snapshot</span>&ensp;<span class="annot">v</span> : <span class="description">Delete a snapshot. Its data is deleted with it, there is no confirmation!</span></p>
+<div class="entry verb-summary"><p class="entry"><span class="name">delete snapshot</span> <span><a href="#UTM-Suite.snapshot">snapshot</a> : <span class="description">Snapshot to delete.</span></span></p></div>
+</div>
+
+        <div class="entry" id="UTM-Suite.overwrite">
+<p class="entry"><span class="name">overwrite</span>&ensp;<span class="annot">v</span> : <span class="description">Replace what a snapshot holds with the current state of the virtual machine. The snapshot keeps its name and its place among the others.</span></p>
+<div class="entry verb-summary"><p class="entry"><span class="name">overwrite</span> <span><a href="#UTM-Suite.snapshot">snapshot</a> : <span class="description">Snapshot to overwrite.</span></span></p></div>
+</div>
+
+        <div class="entry" id="UTM-Suite.scan-snapshots">
+<p class="entry"><span class="name">scan snapshots</span>&ensp;<span class="annot">v</span> : <span class="description">Look through the disk images of a virtual machine for snapshots that UTM does not know about yet, and mark the ones whose data has gone missing. Only needed for snapshots made by other tools.</span></p>
+<div class="entry verb-summary"><p class="entry"><span class="name">scan snapshots</span> <span><a href="#UTM-Suite.virtual-machine">virtual machine</a> : <span class="description">Virtual machine to scan.</span></span></p></div>
+</div>
+
+        <div class="entry" id="UTM-Suite.discard-saved-state">
+<p class="entry"><span class="name">discard saved state</span>&ensp;<span class="annot">v</span> : <span class="description">Throw away the state a suspended virtual machine would resume from, so that it starts up normally instead. Snapshots are not affected.</span></p>
+<div class="entry verb-summary"><p class="entry"><span class="name">discard saved state</span> <span><a href="#UTM-Suite.virtual-machine">virtual machine</a> : <span class="description">Virtual machine to discard the saved state of.</span></span></p></div>
+</div>
+
         <div class="entry" id="UTM-Suite.delete">
 <p class="entry"><span class="name">delete</span>&ensp;<span class="annot">v</span> : <span class="description">Delete a virtual machine. All data will be deleted, there is no confirmation!</span></p>
 <div class="entry verb-summary"><p class="entry"><span class="name">delete</span> <span><a href="#UTM-Suite.virtual-machine">virtual machine</a> : <span class="description">The virtual machine to delete.</span></span></p></div>
@@ -161,15 +241,31 @@ parent: Scripting
         <div class="entry" id="UTM-Suite.virtual-machine">
 <p class="entry"><span class="name">virtual machine</span>&ensp;<span class="annot">n</span> [see also <a href="#UTM-Guest-Suite.virtual-machine">UTM Guest Suite</a>, <a href="#UTM-Configuration-Suite.virtual-machine">UTM Configuration Suite</a>, <a href="#UTM-USB-Devices-Suite.virtual-machine">UTM USB Devices Suite</a>, <a href="#UTM-Registry-Suite.virtual-machine">UTM Registry Suite</a>, <a href="#UTM-Input-Automation-Suite.virtual-machine">UTM Input Automation Suite</a>] : <span class="description">A virtual machine registered in UTM.</span></p>
 <p class="label">Elements</p>
-<p>contains <span><a href="#UTM-Suite.serial-port">serial ports</a></span>; contained by <span>application</span>.</p>
+<p>contains <span><a href="#UTM-Suite.serial-port">serial ports</a></span>, <span><a href="#UTM-Suite.snapshot">snapshots</a></span>; contained by <span>application</span>.</p>
 <p class="label">Properties</p>
 <div class="entry" id="UTM-Suite.virtual-machine.id"><p class="entry"><span class="name">id</span> <span class="type">(text, r/o)</span> : <span class="description">The unique identifier of the VM.</span></p></div>
 <div class="entry" id="UTM-Suite.virtual-machine.name"><p class="entry"><span class="name">name</span> <span class="type">(text, r/o)</span> : <span class="description">The name of the VM.</span></p></div>
 <div class="entry" id="UTM-Suite.virtual-machine.backend"><p class="entry"><span class="name">backend</span> <span class="type">(apple/‌qemu/‌unavailable, r/o)</span> : <span class="description">Emulation/virtualization engine used.</span></p></div>
 <div class="entry" id="UTM-Suite.virtual-machine.status"><p class="entry"><span class="name">status</span> <span class="type">(stopped/‌starting/‌started/‌pausing/‌paused/‌resuming/‌stopping, r/o)</span> : <span class="description">Current running status.</span></p></div>
 <p class="label">responds to</p>
-<a href="#UTM-Suite.start">start</a>, <a href="#UTM-Suite.suspend">suspend</a>, <a href="#UTM-Suite.stop">stop</a>, <a href="#UTM-Suite.delete">delete</a>.</div>
+<a href="#UTM-Suite.start">start</a>, <a href="#UTM-Suite.install">install</a>, <a href="#UTM-Suite.query-install">query install</a>, <a href="#UTM-Suite.suspend">suspend</a>, <a href="#UTM-Suite.stop">stop</a>, <a href="#UTM-Suite.create-snapshot">create snapshot</a>, <a href="#UTM-Suite.scan-snapshots">scan snapshots</a>, <a href="#UTM-Suite.discard-saved-state">discard saved state</a>, <a href="#UTM-Suite.delete">delete</a>.</div>
         
+        <div class="entry" id="UTM-Suite.snapshot">
+<p class="entry"><span class="name">snapshot</span>&ensp;<span class="annot">n</span> : <span class="description">A saved state of a virtual machine that it can be returned to.</span></p>
+<p class="label">Elements</p>
+<p>contained by <span><a href="#UTM-Suite.virtual-machine">virtual machines</a></span>.</p>
+<p class="label">Properties</p>
+<div class="entry" id="UTM-Suite.snapshot.id"><p class="entry"><span class="name">id</span> <span class="type">(text, r/o)</span> : <span class="description">The unique identifier of the snapshot.</span></p></div>
+<div class="entry" id="UTM-Suite.snapshot.name"><p class="entry"><span class="name">name</span> <span class="type">(text)</span> : <span class="description">Name shown for the snapshot. Setting it renames the snapshot; a name already in use gets a number appended.</span></p></div>
+<div class="entry" id="UTM-Suite.snapshot.creation-date"><p class="entry"><span class="name">creation date</span> <span class="type">(date, r/o)</span> : <span class="description">When the snapshot was first saved.</span></p></div>
+<div class="entry" id="UTM-Suite.snapshot.modification-date"><p class="entry"><span class="name">modification date</span> <span class="type">(date, r/o)</span> : <span class="description">When the snapshot was last renamed or overwritten.</span></p></div>
+<div class="entry" id="UTM-Suite.snapshot.size"><p class="entry"><span class="name">size</span> <span class="type">(real, r/o)</span> : <span class="description">Bytes the snapshot occupies.</span></p></div>
+<div class="entry" id="UTM-Suite.snapshot.includes-running-state"><p class="entry"><span class="name">includes running state</span> <span class="type">(boolean, r/o)</span> : <span class="description">Whether the snapshot holds the running machine as well as the disks. Restoring one that does not means the virtual machine starts up instead of resuming.</span></p></div>
+<div class="entry" id="UTM-Suite.snapshot.data-missing"><p class="entry"><span class="name">data missing</span> <span class="type">(boolean, r/o)</span> : <span class="description">Whether the data behind the snapshot has gone missing, in which case it can only be deleted.</span></p></div>
+<div class="entry" id="UTM-Suite.snapshot.based-on"><p class="entry"><span class="name">based on</span> <span class="type">(text, r/o)</span> : <span class="description">Identifier of the snapshot the current state was based on when this one was saved, or empty if it was not based on any.</span></p></div>
+<p class="label">responds to</p>
+<a href="#UTM-Suite.restore">restore</a>, <a href="#UTM-Suite.overwrite">overwrite</a>, <a href="#UTM-Suite.delete-snapshot">delete snapshot</a>.</div>
+
         <div class="entry" id="UTM-Suite.serial-port">
 <p class="entry"><span class="name">serial port</span>&ensp;<span class="annot">n</span> : <span class="description">A serial port in the guest that can be connected to from the host.</span></p>
 <p class="label">Elements</p>
@@ -216,7 +312,7 @@ parent: Scripting
             
           </div>
 <div class="entry">
-<p class="entry">[<span class="name">updating</span> boolean] : <span class="description">If true, will open for both reading and writing. The file existance requirement and creation is still governed by the open mode. Default is false.</span></p>
+<p class="entry">[<span class="name">updating</span> boolean] : <span class="description">If true, will open for both reading and writing. The file existence requirement and creation is still governed by the open mode. Default is false.</span></p>
             
           </div>
 <div class="entry"><p class="entry">&rarr; <a href="#UTM-Guest-Suite.guest-file">guest file</a> : <span class="description">Guest file to operate on.</span></p></div>
@@ -410,7 +506,7 @@ parent: Scripting
     <div class="suite" id="UTM-Configuration-Suite">
 <table class="suite"><tr>
 <td>UTM Configuration Suite</td>
-<td>UTM virtual machine configuration suite. Use this to create and configurate virtual machines.</td>
+<td>UTM virtual machine configuration suite. Use this to create and configure virtual machines.</td>
 </tr></table>
         
         
@@ -423,8 +519,8 @@ parent: Scripting
               
             </div>
 <p class="label">responds to</p>
-<a href="#UTM-Configuration-Suite.update-configuration">update configuration</a>.</div>
-        
+<a href="#UTM-Configuration-Suite.update-configuration">update configuration</a>, <a href="#UTM-Configuration-Suite.reload-configuration">reload configuration</a>.</div>
+
         <div class="entry" id="UTM-Configuration-Suite.update-configuration">
 <p class="entry"><span class="name">update configuration</span>&ensp;<span class="annot">v</span> : <span class="description">Update the configuration of the virtual machine. The VM must be in the stopped state.</span></p>
 <div class="entry verb-summary">
@@ -436,6 +532,11 @@ parent: Scripting
             
           </div>
 </div>
+</div>
+
+        <div class="entry" id="UTM-Configuration-Suite.reload-configuration">
+<p class="entry"><span class="name">reload configuration</span>&ensp;<span class="annot">v</span> : <span class="description">Reload the configuration of the virtual machine from disk, discarding any unsaved in-memory changes. Useful when the .utm bundle has been modified externally (e.g. by an automation tool) and UTM's cached configuration needs to be refreshed. The VM must be in the stopped state.</span></p>
+<div class="entry verb-summary"><p class="entry"><span class="name">reload configuration</span> <span><a href="#UTM-Suite.virtual-machine">virtual machine</a> : <span class="description">Virtual machine to reload.</span></span></p></div>
 </div>
 
         <div class="entry" id="UTM-Configuration-Suite.qemu-configuration">
@@ -506,6 +607,11 @@ parent: Scripting
 <p class="entry"><span class="name">port forwards</span> <span class="type">(list of <a href="#UTM-Configuration-Suite.qemu-port-forward">qemu port forward</a>)</span> : <span class="description">Only used in emulated mode. Allows port forwarding from guest to host.</span></p>
             
           </div>
+<div class="entry" id="UTM-Configuration-Suite.qemu-network-configuration.vlan-guest-address"><p class="entry"><span class="name">vlan guest address</span> <span class="type">(text)</span> : <span class="description">IPv4 subnet of the emulated VLAN in CIDR notation (e.g. 192.168.222.0/24). Only used in shared or host mode. If empty, the existing value is preserved.</span></p></div>
+<div class="entry" id="UTM-Configuration-Suite.qemu-network-configuration.vlan-guest-address-ipv6"><p class="entry"><span class="name">vlan guest address ipv6</span> <span class="type">(text)</span> : <span class="description">IPv6 prefix of the emulated VLAN (e.g. fec0::/64). Only used in shared or host mode. If empty, the existing value is preserved.</span></p></div>
+<div class="entry" id="UTM-Configuration-Suite.qemu-network-configuration.vlan-dhcp-start-address"><p class="entry"><span class="name">vlan dhcp start address</span> <span class="type">(text)</span> : <span class="description">First IPv4 address of the DHCP pool handed to the guest. Only used in shared or host mode. If empty, the existing value is preserved.</span></p></div>
+<div class="entry" id="UTM-Configuration-Suite.qemu-network-configuration.vlan-dhcp-end-address"><p class="entry"><span class="name">vlan dhcp end address</span> <span class="type">(text)</span> : <span class="description">Last IPv4 address of the DHCP pool handed to the guest. Only used in shared or host mode. If empty, the existing value is preserved.</span></p></div>
+<div class="entry" id="UTM-Configuration-Suite.qemu-network-configuration.isolate-from-host"><p class="entry"><span class="name">isolate from host</span> <span class="type">(boolean)</span> : <span class="description">When true, the guest is isolated from the host on the shared network.</span></p></div>
 </div>
         
         <div class="entry" id="UTM-Configuration-Suite.qemu-network-mode">
@@ -588,6 +694,8 @@ parent: Scripting
 <p class="entry"><span class="name">displays</span> <span class="type">(list of <a href="#UTM-Configuration-Suite.apple-display-configuration">apple display configuration</a>)</span> : <span class="description">List of display configuration.</span></p>
             
           </div>
+<div class="entry" id="UTM-Configuration-Suite.apple-configuration.os"><p class="entry"><span class="name">os</span> <span class="type">(linux/‌macOS)</span> : <span class="description">Guest operating system. Only used when creating; defaults to Linux.</span></p></div>
+<div class="entry" id="UTM-Configuration-Suite.apple-configuration.macRecoveryIpsw"><p class="entry"><span class="name">macRecoveryIpsw</span> <span class="type">(file)</span> : <span class="description">IPSW recovery image used to install macOS. Required when os is macOS.</span></p></div>
 </div>
         
         <div class="entry" id="UTM-Configuration-Suite.apple-directory-share-configuration">
@@ -611,7 +719,7 @@ parent: Scripting
 <p class="entry"><span class="name">apple network configuration</span>&ensp;<span class="annot">n</span> : <span class="description">Apple virtual network configuration.</span></p>
 <p class="label">Properties</p>
 <div class="entry" id="UTM-Configuration-Suite.apple-network-configuration.index"><p class="entry"><span class="name">index</span> <span class="type">(integer)</span> : <span class="description">The position of the configuration to update. It can be empty to create a new device. Index is invalid after updating the configuration and must be reset to the current position.</span></p></div>
-<div class="entry" id="UTM-Configuration-Suite.apple-network-configuration.mode"><p class="entry"><span class="name">mode</span> <span class="type">(shared/‌bridged)</span> : <span class="description">This determines how the network device is attached to the host.</span></p></div>
+<div class="entry" id="UTM-Configuration-Suite.apple-network-configuration.mode"><p class="entry"><span class="name">mode</span> <span class="type">(shared/‌nat network/‌host/‌bridged)</span> : <span class="description">This determines how the network device is attached to the host.</span></p></div>
 <div class="entry" id="UTM-Configuration-Suite.apple-network-configuration.address"><p class="entry"><span class="name">address</span> <span class="type">(text)</span> : <span class="description">MAC address (formatted as XX:XX:XX:XX:XX:XX, if empty a random address will be genertaed)</span></p></div>
 <div class="entry" id="UTM-Configuration-Suite.apple-network-configuration.host-interface"><p class="entry"><span class="name">host interface</span> <span class="type">(text)</span> : <span class="description">Only used in bridged mode. Specify the interface name to bridge to.</span></p></div>
 </div>
@@ -619,6 +727,8 @@ parent: Scripting
         <div class="entry" id="UTM-Configuration-Suite.apple-network-mode">
 <p class="entry"><span class="name">apple network mode</span>&ensp;<span class="annot">enum</span> : <span class="description">Mode for networking device.</span></p>
             <div class="entry"><p class="entry"><span class="name">shared</span> : <span class="description">NAT based sharing with the host.</span></p></div>
+            <div class="entry"><p class="entry"><span class="name">nat network</span> : <span class="description">NAT based sharing with the host on a network common to other virtual machines (macOS 26+).</span></p></div>
+            <div class="entry"><p class="entry"><span class="name">host</span> : <span class="description">Network shared with the host and other virtual machines with no WAN routing (macOS 26+).</span></p></div>
             <div class="entry"><p class="entry"><span class="name">bridged</span> : <span class="description">Bridged to a host interface.</span></p></div>
         </div>
         
@@ -655,7 +765,7 @@ parent: Scripting
 <p class="label">Elements</p>
 <p>contained by <span>application</span>, <span><a href="#UTM-Suite.virtual-machine">virtual machines</a></span>.</p>
 <p class="label">Properties</p>
-<div class="entry" id="UTM-USB-Devices-Suite.usb-device.id"><p class="entry"><span class="name">id</span> <span class="type">(integer, r/o)</span> : <span class="description">A unique identifier corrosponding to the USB bus and port number.</span></p></div>
+<div class="entry" id="UTM-USB-Devices-Suite.usb-device.id"><p class="entry"><span class="name">id</span> <span class="type">(integer, r/o)</span> : <span class="description">A unique identifier corresponding to the USB bus and port number.</span></p></div>
 <div class="entry" id="UTM-USB-Devices-Suite.usb-device.name"><p class="entry"><span class="name">name</span> <span class="type">(text, r/o)</span> : <span class="description">The name of the USB device.</span></p></div>
 <div class="entry" id="UTM-USB-Devices-Suite.usb-device.manufacturer-name"><p class="entry"><span class="name">manufacturer name</span> <span class="type">(text, r/o)</span> : <span class="description">The product name described by the iManufacturer descriptor.</span></p></div>
 <div class="entry" id="UTM-USB-Devices-Suite.usb-device.product-name"><p class="entry"><span class="name">product name</span> <span class="type">(text, r/o)</span> : <span class="description">The product name described by the iProduct descriptor.</span></p></div>

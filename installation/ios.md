@@ -9,7 +9,7 @@ nav_order: 1
 
 {% include toc.md %}
 
-UTM works on all devices running iOS 14 or higher if jailbroken. UTM can also be run [semi-tethered][9] on non-jailbroken devices. UTM runs untethered on some non-jailbroken devices with limited compatibility depending on your iOS version and device processor. See the list below for more details.
+UTM works on all devices running iOS 15 or higher if jailbroken. UTM can also be run [semi-tethered][9] on non-jailbroken devices. UTM runs untethered on some non-jailbroken devices with limited compatibility depending on your iOS version and device processor. See the list below for more details.
 
 [Download from GitHub](https://github.com/utmapp/UTM/releases/latest){: .btn .btn-blue }
 
@@ -21,17 +21,10 @@ UTM SE is a stripped down version of UTM which does not support JIT and uses a s
 
 ## Non-Jailbroken Devices
 
-**If you are running iOS 11, 12, or 13**: UTM works with JIT when sideloading. If you are new to sideloading, it is a way to use a developer's certificate to load unapproved apps on a non-jailbroken iOS device. There are a few limitations to sideloading:
-
-* Free developer accounts must re-sign every 7 days
-* Paid developer accounts must re-sign every 1 year
-
 {: .note }
-The last version of UTM that supports iOS 11-13 is [v3.2.4](https://github.com/utmapp/UTM/releases/tag/v3.2.4).
+The last version of UTM that supports iOS 11-13 is [v3.2.4](https://github.com/utmapp/UTM/releases/tag/v3.2.4). The last version of UTM that supports iOS 14 is [v4.7.5](https://github.com/utmapp/UTM/releases/tag/v4.7.5).
 
-**If you are running iOS 14.2, 14.3**: UTM works with JIT when sideloading if your device has an Apple A12 chip or newer. Otherwise, keep reading.
-
-**If you are running iOS 14.0, 14.1, 14.4, or higher**: UTM works with JIT when sideloading if you are semi-tethered. "Semi-tethered" means either tethered to a Mac/PC (e.g. AltJIT), to another iOS device with Wifi sharing, or to itself (e.g. [StikDebug][10]) through a on-device VPN profile. Follow [this guide][9] for more information on enabling JIT for side-loaded apps.
+UTM works with JIT when sideloading if you are semi-tethered. "Semi-tethered" means either tethered to a Mac/PC (e.g. AltJIT), to another iOS device with Wifi sharing, or to itself (e.g. [StikDebug][10]) through a on-device VPN profile. Follow [this guide][9] for more information on enabling JIT for side-loaded apps.
 
 ### AltStore Repository
 

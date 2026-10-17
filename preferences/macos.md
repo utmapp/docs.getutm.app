@@ -24,8 +24,14 @@ If enabled, a menu bar extra for UTM will be displayed. This allows you to quick
 ## Prevent system from sleeping...
 If enabled, system idle sleep will be disabled when *any* VM is running (including headless ones).
 
+## Running VMs on quit
+Choose what happens to running VMs when you quit UTM.
+
+* **Save State (Default)**: The state of each running VM is saved so it can be resumed the next time it is started.
+* **Request Power Down**: UTM asks each guest operating system to shut down (paused VMs are resumed first) and quits after every VM has stopped. If the VMs do not stop within 45 seconds or a power down request fails, quitting is cancelled and an error is shown.
+
 ## Do not show confirmation when closing...
-UTM will warn you when you attempt to close a window of a running VM or when you attempt to quit the application while there are still running VMs. Not properly shutting down a guest could result in data loss. This option will disable the prompt.
+UTM will warn you when you attempt to close a window of a running VM or when you attempt to quit the application while there are still running VMs. Not properly shutting down a guest could result in data loss. This option will disable the prompt. Note that when this option is enabled, quitting UTM will immediately terminate running VMs without saving their state or requesting a power down.
 
 ### Do not prompt...
 When a new USB device is plugged in, the currently active VM will ask the user if they wish to connect the device to the VM. This option will disable that prompt.
@@ -41,8 +47,37 @@ For privacy reasons, you may not want UTM to automatically capture a screenshot 
 ### Do not save VM screenshot to disk
 The last screenshot is usually saved to the .utm package. Turning this off will disable that. Note that existing screenshots will not be deleted until the next time the VM is started.
 
+### Fill the area beside the camera housing in full screen
+If enabled, a full screen VM display will use the entire screen including the area beside the built-in camera on Mac models with a camera housing (notch).
+
+## QEMU Graphics Acceleration
+
 ### Renderer Backend
 When a QEMU backend VM supports [GPU acceleration]({% link settings-qemu/devices/display.md %}#emulated-display-card), one of a number of renderer backends can be selected. There are certain applications that only work (or performs better) with a specific backend. If you are unsure, leave it to default.
+
+* **Default**: Currently the same as ANGLE (Metal).
+* **ANGLE (OpenGL)**: Translates guest OpenGL calls to the host's OpenGL driver.
+* **ANGLE (Metal)**: Translates guest OpenGL calls to Metal.
+* **Apple Core OpenGL**: Uses the host's native OpenGL driver which supports OpenGL 4.1 in the guest.
+
+{: .note }
+Only Default and ANGLE (Metal) support Vulkan and DirectX. When any other backend is selected, the Vulkan and DirectX driver options are disabled.
+
+### Vulkan Driver
+Selects the host Vulkan driver used for [Vulkan passthrough]({% link guest-support/linux.md %}) to a guest with VirtIO Venus drivers.
+
+* **Default**: Currently the same as MoltenVK.
+* **Disabled**: Vulkan is not available to the guest.
+* **MoltenVK**: Recommended driver.
+* **KosmicKrisp** **macOS 26+**{: .label .label-green }: An experimental Mesa based Vulkan driver.
+
+### DirectX Driver
+Selects the host DirectX driver used for [DirectX passthrough]({% link guest-support/windows.md %}) to a Windows guest with the experimental UTM 3D graphics driver installed.
+
+* **Default**: Uses D3DMetal when it is included in the build and can run (macOS 14 and higher; Rosetta must be installed on Apple Silicon). Otherwise, DXMT is used.
+* **Disabled**: DirectX is not available to the guest.
+* **DXMT**: Supports DirectX 11.
+* **D3DMetal**: Supports DirectX 11 and DirectX 12. This option is only shown if it is available.
 
 ### FPS Limit
 By default, the operating system will synchronize the rendering of each frame to the refresh rate of the current display. However, there are cases where performance intensive applications may cause frame stalls and result in inconsistent frame times. You can use this option to lower the target frame rate in order to have a more consistent experience.
@@ -79,13 +114,17 @@ Edit the list of key combinations that you can easily send to a QEMU backend VM 
 The default combination is Control+Option which can be used to capture/release the mouse when inside a VM window. That button combination collides with the VoiceOver's hot key.
 
 ### Caps Lock treated as a key
-By default, Caps Lock is treated as a modifier state which is synchronized with the guest. However, some users (for example users of screen reader software) may find it useful to treat Caps Lock as a raw key. If enabled, the Caps Lock state may go out of sync with the host.
+By default, Caps Lock is treated as a modifier state which is synchronized with the guest. However, some users (for example users of screen reader software) may find it useful to treat Caps Lock as a raw key. If enabled, the Caps Lock state may go out of sync with the host. While input is captured, Caps Lock can also be held down (for example, as the NVDA key) and the guest will see both the press and the release.
 
 ### Num Lock is forced on
 For keyboards which do not have a num lock button, this will ensure the guest always treat the numeric pad as number keys. Since macOS does not support num lock, we do not attempt to synchronize the host num lock state (and keyboard LED) so this may result in the guest and host having the num lock state out of sync.
 
-### Swap Control and Command keys
-Applies only for QEMU backend VMs. The two keys will be swapped allowing for shortcuts such as Cmd+C to be mapped to Ctrl+C in the guest. Capture input is still needed to send certain key combinations that are usually handled by the system.
+### Control, Option, and Command keys
+Applies only for QEMU backend VMs. This does not apply to key bindings outside the guest. Capture input is still needed to send certain key combinations that are usually handled by the system.
+
+* **Default**: No keys are swapped.
+* **Swap Control (⌃) and Command (⌘)**: Allows for shortcuts such as Cmd+C to be mapped to Ctrl+C in the guest.
+* **Swap Command (⌘) and Option (⌥)**: Matches the position of the Windows and Alt keys on a PC keyboard.
 
 ### Swap the leftmost key ...
 On some ISO keyboards, the leftmost key on the number row and the key next to left shift on ISO keyboards appear swapped to the QEMU backend guest. If you experience this, check this option. Otherwise, this option can be safely ignored.

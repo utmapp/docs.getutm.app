@@ -20,9 +20,9 @@ To add a new drive, tap the "+" button on the top left in the main settings menu
 
 ### Importing
 
-**iOS**{: .label .label-blue } When importing a drive, a removable drive will be created and the selected image will be associated with the new drive.
+When importing a drive that is non-removable and not a raw image, the selected image will be copied into the .utm package and converted to the QCOW2 format.
 
-**macOS**{: .label .label-green } When importing a drive that is non-removable and not a raw image, the selected image will first be converted to the QCOW2 format.
+**iOS**{: .label .label-blue } Imported drives are created as non-removable drives. On iOS 26 and newer, the image is converted to QCOW2. On older versions of iOS, the image is copied without conversion.
 
 ## Deletion
 

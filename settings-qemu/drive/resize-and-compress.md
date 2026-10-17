@@ -9,10 +9,16 @@ grand_parent: Settings (QEMU)
 {: .label .label-green }
 **macOS**
 
-On macOS, when you select a non-removable drive, you have additional options to resize and compress the drive image.
+{: .label .label-blue }
+**iOS 26+**
+
+When you select a non-removable drive, you have additional options to resize and compress the drive image. On iOS, these options require iOS 26 or newer.
 
 {: .warning }
 When any of these options are used on a raw image or a non-QCOW2 format image, the image will be converted to QCOW2. All these options are experimental and you should back up your virtual machine before using them.
+
+{: .note }
+Space cannot be reclaimed (or compressed) from a drive while it holds snapshots or a suspended state. Delete the [snapshots]({% link advanced/snapshots.md %}) and shut down the VM first.
 
 ## Reclaim Space
 A re-conversion to QCOW2 is performed and any zeros in the file will be released, freeing up host space. For the best result, first make sure the drive is mounted on a supported interface and the guest operating system supports TRIM. Then, make sure the guest mounts the drive TRIM-aware. On Linux, the `fstrim` can be used to force a TRIM command. After running TRIM, shut down the VM and reclaim space from the drive's settings page to free up the host space.

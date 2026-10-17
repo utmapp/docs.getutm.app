@@ -61,6 +61,29 @@ tell application "UTM"
 end tell
 ```
 
+## Creating a macOS VM
+
+Only supported on Apple Silicon. Automatically setting up the user account on first boot requires macOS 27 or later on both the host and the guest.
+
+```applescript
+tell application "UTM"
+    --- specify the IPSW to install from
+    set ipsw to POSIX file "/path/to/UniversalMac_Restore.ipsw"
+    --- create an Apple VM for macOS with a 128GiB drive
+    set vm to make new virtual machine with properties {backend:apple, configuration:{name:"macOS", os:macOS, macRecoveryIpsw:ipsw, memory:8192, drives:{{guest size:131072}}}}
+    --- install macOS (ALL DATA ON THE PRIMARY DRIVE WILL BE ERASED WITHOUT CONFIRMATION!)
+    install vm
+    --- wait until the installation is complete
+    repeat
+        set p to query install vm
+        if not installing of p then exit repeat
+        delay 10
+    end repeat
+    --- on the first start, create an account, log in automatically, and turn on Remote Login (SSH)
+    start vm provisioning {username:"user", password:"password", automatic login:true, remote login:true}
+end tell
+```
+
 ## Deleting a VM
 
 ```applescript
@@ -84,8 +107,38 @@ tell application "UTM"
     get status of vm --- Result: "started"
     --- get serial port address
     get address of first serial port of vm --- Result: "/dev/ttys011"
-    --- get IP address (QEMU Guest Agent must be installed) of first interface
+    --- get IP address of first interface (for QEMU, the QEMU Guest Agent must be installed)
     get item 1 of (query ip of vm) -- Result: "192.168.64.9"
+end tell
+```
+
+## Snapshots
+
+QEMU virtual machines are supported on all versions of macOS. Apple virtual machines require macOS 27 or later and must be stopped for every operation except delete.
+
+```applescript
+tell application "UTM"
+    set vm to virtual machine named "Ubuntu"
+    --- list snapshots (newest first)
+    get name of every snapshot of vm
+    --- save the current state as a new snapshot
+    set snap to create snapshot vm named "Before update"
+    --- get information about a snapshot
+    get {creation date, size, includes running state} of snap
+    --- rename a snapshot
+    set name of snap to "Clean install"
+    --- find a snapshot by name
+    set snap to snapshot "Clean install" of vm
+    --- replace the current state of the vm with the snapshot
+    restore snap
+    --- replace the snapshot with the current state of the vm
+    overwrite snap
+    --- delete a snapshot (NO CONFIRMATION WILL BE GIVEN!)
+    delete snapshot snap
+    --- discard the suspended state so the vm starts up normally
+    discard saved state vm
+    --- look for snapshots made by other tools (such as qemu-img)
+    scan snapshots vm
 end tell
 ```
 
@@ -104,6 +157,31 @@ tell application "UTM"
     set i to id of item 1 of drives of config
     set item 1 of drives of config to {id:i, source:iso}
     --- save the configuration (VM must be stopped)
+    update configuration of vm with config
+    --- reload the configuration from disk if the .utm package was modified by another tool (VM must be stopped)
+    reload configuration vm
+end tell
+```
+
+## Network configuration
+
+```applescript
+tell application "UTM"
+    --- change the emulated VLAN of a QEMU VM in shared network mode
+    set vm to virtual machine named "Ubuntu"
+    set config to configuration of vm
+    set nic to item 1 of network interfaces of config
+    set vlan guest address of nic to "192.168.100.0/24"
+    set vlan dhcp start address of nic to "192.168.100.10"
+    set vlan dhcp end address of nic to "192.168.100.100"
+    --- prevent the guest from accessing the host
+    set isolate from host of nic to true
+    set item 1 of network interfaces of config to nic
+    update configuration of vm with config
+    --- put an Apple VM on a NAT network shared with other VMs (macOS 26+)
+    set vm to virtual machine named "Apple Linux"
+    set config to configuration of vm
+    set mode of item 1 of network interfaces of config to nat network
     update configuration of vm with config
 end tell
 ```
@@ -161,6 +239,8 @@ end tell
 ```
 
 ## USB Devices
+
+USB devices can be connected to QEMU VMs with USB sharing enabled and to Apple VMs on macOS 27 or later. For Apple VMs, the device must first be [assigned to UTM]({% endraw %}{% link guest-support/sharing/usb.md %}{% raw %}).
 
 ```applescript
 tell application "UTM"

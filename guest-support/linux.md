@@ -18,7 +18,17 @@ Most popular Linux distributions will have the correct drivers already built in.
 * `CONFIG_NET_9P`, `CONFIG_NET_9P_VIRTIO`, `CONFIG_9P_FS`, `CONFIG_9P_FS_POSIX_ACL` for VirtFS directory sharing
 * `CONFIG_VIRTIO_FS` for VirtioFS directory sharing
 
-To use the experimental OpenGL hardware acceleration features in the QEMU backend, make sure a [compatible display card is selected]({% link settings-qemu/devices/display.md %}#emulated-display-card) and the VirGL driver is enabled in Mesa.
+## Graphics Acceleration
+To use the hardware acceleration features in the QEMU backend, make sure a [GPU accelerated display card is selected]({% link settings-qemu/devices/display.md %}#emulated-display-card) (such as `virtio-gpu-gl-pci`).
+
+### OpenGL
+OpenGL is provided by the VirGL driver in Mesa which most distributions enable by default. **macOS**{: .label .label-green } Selecting "Apple Core OpenGL" as the renderer backend in [preferences]({% link preferences/macos.md %}) enables support for OpenGL 4.1. Note that this backend does not support Vulkan.
+
+### Vulkan
+Vulkan 1.3 is supported with the VirtIO Venus driver in Mesa. The renderer backend in [preferences]({% link preferences/preferences.md %}) must be "Default" or "ANGLE (Metal)" and the "Vulkan Driver" must not be "Disabled".
+
+{: .warning }
+Rendering the Linux desktop with Vulkan does not currently work due to missing support for indirect draws in geometry shaders. Configure your guest to use the VirGL Gallium driver for the desktop.
 
 ## SPICE Agent
 SPICE agent is required for clipboard sharing (both [QEMU]({% link settings-qemu/sharing.md %}#clipboard-sharing) and [Apple]({% link settings-apple/virtualization.md %}#macos-13-clipboard-sharing) backend) as well as dynamic display resolution in [QEMU]({% link settings-qemu/devices/display.md %}#auto-resolution) backend.

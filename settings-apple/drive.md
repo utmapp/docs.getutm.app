@@ -15,8 +15,8 @@ To add a new drive, click "New..." on the sidebar under "Drives".
 ### Removable
 Check "Removable" to create a drive whose image is not stored in the VM's bundle. You can select the image to attach from the home screen.
 
-### Use NVMe Interface
-There is some compatibility issues with the (default) VirtIO block storage interface and some Linux distributions. If you are experience disk I/O issues, check this option.
+### **macOS 14+**{: .label .label-green } Use NVMe Interface
+Only available for Linux guests. There is some compatibility issues with the (default) VirtIO block storage interface and some Linux distributions. If you are experience disk I/O issues, check this option. This interface is slower but less likely to encounter filesystem errors.
 
 ### **macOS 26+**{: .label .label-green } Use Apple Sparse Image Format
 Apple Sparse Image Format has better performance and efficiency but is only supported on macOS 26 and higher. If you wish to run this VM on an older macOS host, leave this unchecked.
@@ -40,4 +40,10 @@ To change the drive order, either right/secondary click the drive on the left to
 ## Size
 When creating a new image, this is the size of the new image. You can toggle between "MB" (mebibyte) or "GB" (gibibyte).
 
-A raw empty image will be created inside the .utm package. If the host file system containing the .utm is APFS, then a sparse file will be created (zeros will not take space).
+A raw empty image (or an ASIF image if selected) will be created inside the .utm package. If the host file system containing the .utm is APFS, then a sparse file will be created (zeros will not take space).
+
+## **macOS 14+**{: .label .label-green } Resize
+To increase the size of an existing drive image, select the drive and click "Resize…". The image format and the minimum size will be shown. Disk images can only be grown and not shrunk. You will need to resize the partition inside the guest to make use of the new space.
+
+{: .warning }
+Resizing is experimental and could result in data loss. You are strongly encouraged to back-up the VM before proceeding.
