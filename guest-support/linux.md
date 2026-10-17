@@ -143,7 +143,7 @@ mkdir /home/user/utm
 
 _Note_: In this example the username is `user`, you might have to adjust this to match your configuration.
 
-Now add another entry to `/etc/fstab`:
+Install `bindfs` if not already installed. Then add another entry to `/etc/fstab`:
 
 ```
 # bindfs mount to remap UID/GID
