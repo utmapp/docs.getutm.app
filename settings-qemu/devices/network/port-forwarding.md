@@ -3,6 +3,7 @@ layout: default
 title: Port Forwarding
 parent: Network
 grand_parent: Devices
+ancestor: Settings (QEMU)
 ---
 {% include toc.md %}
 
